@@ -88,7 +88,7 @@ Routes publiques:
 - /projects (Liste projets)
 - /projects/provisions (Détail projet 1)
 - /projects/la-porte (Détail projet 2)
-- /projects/portfolio-macos (Détail projet 3)
+- /projects/portfolio (Détail projet 3)
 - /contact (Contact)
 - /404 (Page non trouvée)
 

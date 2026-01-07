@@ -1,39 +1,37 @@
 import Link from 'next/link';
 import Window from '@/components/os/Window';
+import ProfilePicture from '@/components/ProfilePicture';
 
 export default function Presentation() {
-  // Liste de films réels (à personnaliser)
-  const films = [
-    { title: 'Blade Runner 2049', emoji: '🎭' },
-    { title: 'Interstellar', emoji: '🚀' },
-    { title: 'The Grand Budapest Hotel', emoji: '🎨' },
-    { title: 'Her', emoji: '🌙' },
-  ];
   return (
     <Window title="Présentation">
       <div className="p-4 sm:p-6 md:p-8 lg:p-12">
         {/* Section 1: Qui je suis */}
         <section className="mb-8 sm:mb-12 animate-fadeIn">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-            Qui je suis
+          Bonjour! Je suis Jeremy Audette
           </h2>
-          <div className="prose prose-lg dark:prose-invert max-w-none">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-start">
+            <div className="prose prose-lg dark:prose-invert max-w-none flex-1 order-2 sm:order-1">
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              Au-delà du code, je suis quelqu'un de curieux et créatif, toujours en quête de nouvelles
-              façons de résoudre des problèmes. Le développement web m'attire parce qu'il combine la
-              logique technique avec la créativité visuelle, permettant de créer des expériences qui
-              ont un réel impact.
-            </p>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              Ce qui me motive en développement, c'est la possibilité de transformer une idée en
-              quelque chose de tangible et utilisable. J'aime particulièrement travailler sur
-              l'expérience utilisateur, en cherchant toujours à créer des interfaces intuitives et
-              agréables à utiliser.
-            </p>
-            <p className="text-gray-700 dark:text-gray-300">
-              En dehors du développement, je suis passionné par le cinéma, la musique et la cuisine.
-              Ces intérêts nourrissent ma créativité et m'aident à penser différemment dans mes projets.
-            </p>
+  Au-delà du développement, je suis quelqu’un de curieux et ouvert, qui aime explorer, apprendre et
+  comprendre ce qui l’entoure. J’apprécie les projets qui me permettent de réfléchir, de créer et de
+  donner du sens à ce que je fais, autant dans le travail que dans le quotidien.
+</p>
+<p className="text-gray-700 dark:text-gray-300 mb-4">
+  Ce que j’aime particulièrement, c’est partir d’une idée et la voir évoluer peu à peu vers quelque
+  chose de concret et utile. J’accorde beaucoup d’importance à l’expérience des personnes qui utilisent
+  ce que je crée, en cherchant toujours la simplicité, la clarté et le confort d’utilisation.
+</p>
+<p className="text-gray-700 dark:text-gray-300">
+  En dehors du travail, je suis passionné par le cinéma, la musique et la cuisine. Ces intérêts font
+  partie de mon quotidien et nourrissent ma créativité, m’aidant à aborder les projets avec un regard
+  différent et plus humain.
+</p>
+            </div>
+            <div className="flex-shrink-0 order-1 sm:order-2 sm:ml-auto [&>div]:mb-0">
+              <ProfilePicture />
+            </div>
           </div>
         </section>
 
@@ -56,36 +54,7 @@ export default function Presentation() {
             <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50 mb-4">
               <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4">
                 J'adore explorer différents genres de cinéma, des films d'auteur aux blockbusters.
-                Voici quelques-uns de mes films favoris :
               </p>
-              
-              {/* Film Posters Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-4">
-                {films.map((film, idx) => (
-                  <div
-                    key={idx}
-                    className="aspect-[2/3] bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-lg flex flex-col items-center justify-center border border-gray-200/50 dark:border-gray-700/50 hover:scale-105 transition-transform"
-                  >
-                    <span className="text-3xl sm:text-4xl mb-2" role="img" aria-hidden="true">
-                      {film.emoji}
-                    </span>
-                    <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 text-center px-2">
-                      {film.title}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Letterboxd Embed */}
-              <div className="mb-4">
-                <iframe
-                  title="Letterboxd Diary"
-                  width="100%"
-                  height="800"
-                  style={{ border: 0, background: 'white', borderRadius: '0.5rem' }}
-                  src="https://lb-embed-content.bokonon.dev?username=audjeremy"
-                />
-              </div>
 
               {/* Letterboxd Link */}
               <a
@@ -129,7 +98,7 @@ export default function Presentation() {
               
               {/* Fable Link */}
               <a
-                href="https://fable.co/yourusername"
+                href="https://fable.co/jeremy-audette-217923108109?referralID=5N73iGMyjo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105"
@@ -149,9 +118,6 @@ export default function Presentation() {
                 </svg>
                 Voir mon profil Fable
               </a>
-              <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2">
-                {/* TODO: Remplacer 'yourusername' par votre nom d'utilisateur Fable */}
-              </p>
             </div>
           </div>
 
@@ -167,8 +133,7 @@ export default function Presentation() {
             </div>
             <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
               <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4">
-                La musique fait partie intégrante de mon processus créatif. Voici une sélection de
-                ce que j'écoute en travaillant :
+                La musique fait partie intégrante de mon processus créatif. Mes chansons favorites de 2025 :
               </p>
 
               {/* Spotify Embed */}
@@ -210,27 +175,6 @@ export default function Presentation() {
           </div>
         </section>
 
-        {/* Section 3: Callout perso */}
-        <section className="mb-8 sm:mb-12 animate-fadeIn delay-300">
-          <div className="bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-emerald-300/30 dark:border-emerald-700/30">
-            <div className="flex items-start gap-4">
-              <span className="text-3xl sm:text-4xl shrink-0" role="img" aria-hidden="true">
-                💡
-              </span>
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">
-                  Actuellement obsédé par...
-                </h3>
-                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                  {/* TODO: Ajoutez ce qui vous passionne actuellement */}
-                  L'optimisation des performances web, les animations CSS natives et l'exploration
-                  de nouvelles approches en UI/UX design.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* CV Encart */}
         <section className="animate-fadeIn delay-400">
           <div className="bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-emerald-300/30 dark:border-emerald-700/30">
@@ -238,7 +182,7 @@ export default function Presentation() {
               Curriculum Vitae
             </h2>
             <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-6">
-              Pour le détail de mon parcours, consultez mon CV complet.
+              Pour le détail de mon parcours, consultez mon CV complet. Vous pouvez aussi découvrir mes projets pour voir mon travail en action.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
@@ -246,6 +190,15 @@ export default function Presentation() {
                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105"
               >
                 Voir mon CV
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105"
+              >
+                Mes projets
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>

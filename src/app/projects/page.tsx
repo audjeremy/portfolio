@@ -29,9 +29,12 @@ export default function Projects() {
               {/* Project Image Placeholder */}
               <div className="w-full h-40 sm:h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
                 <span className="text-4xl sm:text-6xl" role="img" aria-label={project.title}>
+                  {project.slug === 'recolte' && '🌾'}
+                  {project.slug === 'affiche-provisions' && '🎨'}
                   {project.slug === 'provisions' && '🛒'}
-                  {project.slug === 'la-porte' && '🍽️'}
-                  {project.slug === 'portfolio-macos' && '💻'}
+                  {project.slug === 'blonde-biscuiterie' && '🍪'}
+                  {project.slug === 'festipop' && '🎵'}
+                  {project.slug === 'portfolio' && '💻'}
                 </span>
               </div>
 

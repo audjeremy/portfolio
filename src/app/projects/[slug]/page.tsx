@@ -77,10 +77,12 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 Voir le code
               </a>
             )}
-            {project.demo && (
-              <span
-                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gray-400 dark:bg-gray-600 text-white text-sm sm:text-base font-semibold rounded-lg cursor-not-allowed opacity-60"
-                aria-label="Démo à venir"
+            {project.demo && project.demo !== '' && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-emerald-600 dark:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors"
               >
                 <svg
                   className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
@@ -95,8 +97,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                   />
                 </svg>
-                DÉMO À VENIR
-              </span>
+                Voir le projet
+              </a>
             )}
           </div>
 
@@ -151,13 +153,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               project.images.map((imagePath, index) => (
                 <div
                   key={index}
-                  className="relative w-full h-48 sm:h-64 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50"
+                  className="relative w-full min-h-64 sm:min-h-96 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 flex items-center justify-center p-4"
                 >
                   <Image
                     src={imagePath}
                     alt={`Aperçu du projet ${project.title}`}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>

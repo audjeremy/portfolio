@@ -122,14 +122,24 @@ export default function About() {
           </div>
 
           <div className="mt-4 sm:mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-gray-200/50 dark:border-gray-700/50">
-              <p className="text-xs text-gray-500 dark:text-gray-400">Téléphone</p>
-              <p className="text-sm sm:text-base text-gray-900 dark:text-white font-semibold break-all">(438) 504-4533</p>
-            </div>
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-gray-200/50 dark:border-gray-700/50">
-              <p className="text-xs text-gray-500 dark:text-gray-400">Email</p>
-              <p className="text-sm sm:text-base text-gray-900 dark:text-white font-semibold break-all">jeremyaudette@icloud.com</p>
-            </div>
+            <a
+              href="tel:+14385044533"
+              className="group bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-shadow"
+            >
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Téléphone</p>
+              <p className="text-sm sm:text-base text-gray-900 dark:text-white font-semibold group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
+                (438) 504-4533
+              </p>
+            </a>
+            <a
+              href="mailto:jeremyaudette@icloud.com"
+              className="group bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-shadow"
+            >
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Email</p>
+              <p className="text-sm sm:text-base text-gray-900 dark:text-white font-semibold break-all group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
+                jeremyaudette@icloud.com
+              </p>
+            </a>
             <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-gray-200/50 dark:border-gray-700/50">
               <p className="text-xs text-gray-500 dark:text-gray-400">Ville</p>
               <p className="text-sm sm:text-base text-gray-900 dark:text-white font-semibold">Montréal</p>

@@ -95,9 +95,12 @@ export default function Home() {
                 {/* Project Image Placeholder */}
                 <div className="w-full h-40 sm:h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
                   <span className="text-4xl sm:text-6xl" role="img" aria-label={project.title}>
+                    {project.slug === 'recolte' && '🌾'}
+                    {project.slug === 'affiche-provisions' && '🎨'}
                     {project.slug === 'provisions' && '🛒'}
-                    {project.slug === 'la-porte' && '🍽️'}
-                    {project.slug === 'portfolio-macos' && '💻'}
+                    {project.slug === 'blonde-biscuiterie' && '🍪'}
+                    {project.slug === 'festipop' && '🎵'}
+                    {project.slug === 'portfolio' && '💻'}
                   </span>
                 </div>
                 
@@ -143,16 +146,19 @@ export default function Home() {
                         GitHub
                       </a>
                     )}
-                    {project.demo && (
-                      <span
-                        className="px-4 py-2 text-sm font-semibold bg-gray-400 dark:bg-gray-600 text-white rounded-lg cursor-not-allowed opacity-60 inline-flex items-center gap-1.5"
-                        aria-label={`Démo à venir pour ${project.title}`}
+                    {project.demo && project.demo !== '' && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 text-sm font-semibold bg-emerald-600 dark:bg-emerald-700 hover:bg-emerald-700 dark:hover:bg-emerald-600 text-white rounded-lg transition-colors inline-flex items-center gap-1.5"
+                        aria-label={`Voir le projet ${project.title}`}
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
-                        DÉMO À VENIR
-                      </span>
+                        Voir le projet
+                      </a>
                     )}
                   </div>
                 </div>
