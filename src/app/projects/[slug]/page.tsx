@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import Window from '@/components/os/Window';
 import { getProjectBySlug, getAllProjectSlugs } from '@/lib/projects';
 
@@ -77,11 +78,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               </a>
             )}
             {project.demo && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-emerald-600 text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-emerald-700 transition-colors"
+              <span
+                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gray-400 dark:bg-gray-600 text-white text-sm sm:text-base font-semibold rounded-lg cursor-not-allowed opacity-60"
+                aria-label="Démo à venir"
               >
                 <svg
                   className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
@@ -96,8 +95,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                   />
                 </svg>
-                Voir la démo
-              </a>
+                DÉMO À VENIR
+              </span>
             )}
           </div>
 
@@ -135,31 +134,42 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 key={index}
                 className="flex items-start bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-gray-200/50 dark:border-gray-700/50"
               >
-                <span className="text-emerald-600 font-bold mr-2 sm:mr-3 text-base sm:text-lg shrink-0">•</span>
+                <span className="w-2 h-2 bg-emerald-600 rounded-full mr-3 mt-2 shrink-0" />
                 <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300 break-words">{highlight}</span>
               </li>
             ))}
           </ul>
         </section>
 
-        {/* Images Placeholders */}
-        {project.images.length > 0 && (
-          <section>
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
-              Aperçu
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-              {project.images.map((image, index) => (
+        {/* Images Preview */}
+        <section>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
+            Aperçu
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            {project.images.length > 0 ? (
+              project.images.map((imagePath, index) => (
                 <div
                   key={index}
-                  className="w-full h-48 sm:h-64 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center"
+                  className="relative w-full h-48 sm:h-64 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50"
                 >
-                  <span className="text-white text-xs sm:text-sm">Image {index + 1}</span>
+                  <Image
+                    src={imagePath}
+                    alt={`Aperçu du projet ${project.title}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
-              ))}
-            </div>
-          </section>
-        )}
+              ))
+            ) : (
+              <div className="w-full h-48 sm:h-64 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-xl flex flex-col items-center justify-center border border-gray-200/50 dark:border-gray-700/50">
+                <span className="text-4xl mb-2" role="img" aria-hidden="true">🖼️</span>
+                <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Aperçu bientôt</span>
+              </div>
+            )}
+          </div>
+        </section>
       </div>
     </Window>
   );

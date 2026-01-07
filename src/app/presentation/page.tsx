@@ -1,6 +1,14 @@
+import Link from 'next/link';
 import Window from '@/components/os/Window';
 
 export default function Presentation() {
+  // Liste de films réels (à personnaliser)
+  const films = [
+    { title: 'Blade Runner 2049', emoji: '🎭' },
+    { title: 'Interstellar', emoji: '🚀' },
+    { title: 'The Grand Budapest Hotel', emoji: '🎨' },
+    { title: 'Her', emoji: '🌙' },
+  ];
   return (
     <Window title="Présentation">
       <div className="p-4 sm:p-6 md:p-8 lg:p-12">
@@ -51,14 +59,9 @@ export default function Presentation() {
                 Voici quelques-uns de mes films favoris :
               </p>
               
-              {/* Film Posters Grid - Placeholder */}
+              {/* Film Posters Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-4">
-                {[
-                  { title: 'Film 1', emoji: '🎭' },
-                  { title: 'Film 2', emoji: '🚀' },
-                  { title: 'Film 3', emoji: '🎨' },
-                  { title: 'Film 4', emoji: '🌙' },
-                ].map((film, idx) => (
+                {films.map((film, idx) => (
                   <div
                     key={idx}
                     className="aspect-[2/3] bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-lg flex flex-col items-center justify-center border border-gray-200/50 dark:border-gray-700/50 hover:scale-105 transition-transform"
@@ -73,9 +76,20 @@ export default function Presentation() {
                 ))}
               </div>
 
+              {/* Letterboxd Embed */}
+              <div className="mb-4">
+                <iframe
+                  title="Letterboxd Diary"
+                  width="100%"
+                  height="800"
+                  style={{ border: 0, background: 'white', borderRadius: '0.5rem' }}
+                  src="https://lb-embed-content.bokonon.dev?username=audjeremy"
+                />
+              </div>
+
               {/* Letterboxd Link */}
               <a
-                href="https://letterboxd.com/yourusername"
+                href="https://letterboxd.com/audjeremy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105"
@@ -95,8 +109,48 @@ export default function Presentation() {
                 </svg>
                 Voir mon profil Letterboxd
               </a>
+            </div>
+          </div>
+
+          {/* Livres - Fable */}
+          <div className="mb-8 sm:mb-10">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <span className="text-2xl" role="img" aria-hidden="true">
+                📚
+              </span>
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
+                Livres préférés
+              </h3>
+            </div>
+            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50 mb-4">
+              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4">
+                La lecture est une source constante d'inspiration. Voici quelques-uns de mes livres favoris :
+              </p>
+              
+              {/* Fable Link */}
+              <a
+                href="https://fable.co/yourusername"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105"
+              >
+                <svg
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  />
+                </svg>
+                Voir mon profil Fable
+              </a>
               <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2">
-                {/* TODO: Remplacer 'yourusername' par votre nom d'utilisateur Letterboxd */}
+                {/* TODO: Remplacer 'yourusername' par votre nom d'utilisateur Fable */}
               </p>
             </div>
           </div>
@@ -117,12 +171,15 @@ export default function Presentation() {
                 ce que j'écoute en travaillant :
               </p>
 
-              {/* Spotify Embed Option */}
+              {/* Spotify Embed */}
+              {/* TODO: Remplacez l'ID de la playlist (37i9dQZEVXd5jKf3YIFJd8) par votre ID */}
+              {/* Pour obtenir l'ID: ouvrez votre playlist sur Spotify, cliquez sur "..." → "Partager" → "Copier le lien de la playlist" */}
+              {/* L'ID est la partie après "playlist/" dans l'URL */}
               <div className="mb-4">
-                {/* TODO: Remplacer l'URL ci-dessous par votre playlist Spotify ou profil */}
-                {/* <iframe
+                <iframe
+                  data-testid="embed-iframe"
                   style={{ borderRadius: '12px' }}
-                  src="https://open.spotify.com/embed/playlist/YOUR_PLAYLIST_ID?utm_source=generator"
+                  src="https://open.spotify.com/embed/playlist/37i9dQZEVXd5jKf3YIFJd8?utm_source=generator"
                   width="100%"
                   height="352"
                   frameBorder="0"
@@ -130,23 +187,12 @@ export default function Presentation() {
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                   loading="lazy"
                   title="Spotify Playlist"
-                /> */}
-                <div className="bg-gradient-to-br from-emerald-500/10 to-teal-600/10 rounded-xl p-8 sm:p-12 border border-gray-200/50 dark:border-gray-700/50 text-center">
-                  <span className="text-4xl sm:text-6xl mb-4 block" role="img" aria-hidden="true">
-                    🎧
-                  </span>
-                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4">
-                    Intégration Spotify à venir
-                  </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-500">
-                    Ajoutez votre embed Spotify ci-dessus ou un lien vers votre profil
-                  </p>
-                </div>
+                />
               </div>
 
-              {/* Spotify Link Alternative */}
+              {/* Spotify Link (fallback) */}
               <a
-                href="https://open.spotify.com/user/yourusername"
+                href="https://open.spotify.com/user/12163606247"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105"
@@ -160,9 +206,6 @@ export default function Presentation() {
                 </svg>
                 Voir mon profil Spotify
               </a>
-              <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2">
-                {/* TODO: Remplacer 'yourusername' par votre nom d'utilisateur Spotify */}
-              </p>
             </div>
           </div>
         </section>
@@ -188,94 +231,34 @@ export default function Presentation() {
           </div>
         </section>
 
-        {/* Section Curriculum Vitae */}
+        {/* CV Encart */}
         <section className="animate-fadeIn delay-400">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">
-            Curriculum Vitae
-          </h2>
-          
-          <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-gray-200/50 dark:border-gray-700/50 mb-6">
-            {/* Curriculum Vitae Summary */}
-            <div className="mb-6 space-y-4">
-              <div>
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  Titre du poste recherché
-                </h3>
-                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                  Développeur web / Développeur front-end / Stagiaire en développement web
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  Formation
-                </h3>
-                <ul className="space-y-2 text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-emerald-600 rounded-full mr-2 mt-2 shrink-0" />
-                    <span>
-                      <strong>AEC : Développement de sites web transactionnels</strong> — Collège Ahuntsic (Février 2026)
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  Compétences clés
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    'React',
-                    'TypeScript',
-                    'Next.js',
-                    'Node.js',
-                    'Laravel',
-                    'Tailwind CSS',
-                    'Figma',
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 text-xs sm:text-sm font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 rounded-full"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  Expérience
-                </h3>
-                <ul className="space-y-2 text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-emerald-600 rounded-full mr-2 mt-2 shrink-0" />
-                    <span>
-                      <strong>La Pat Mobile</strong> — Caissier / Cuisinier (2019 – Présent)
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-emerald-600 rounded-full mr-2 mt-2 shrink-0" />
-                    <span>
-                      <strong>FLYOS Games</strong> — Stagiaire vidéo (Été 2024)
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Curriculum Vitae Download Button */}
-            <div className="text-center">
+          <div className="bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-emerald-300/30 dark:border-emerald-700/30">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
+              Curriculum Vitae
+            </h2>
+            <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-6">
+              Pour le détail de mon parcours, consultez mon CV complet.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105"
+              >
+                Voir mon CV
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
               <a
                 href="/AudetteJeremy-CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105"
-                aria-label="Télécharger mon Curriculum Vitae en format PDF"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white text-sm sm:text-base font-semibold rounded-lg transition-all border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hover:scale-105"
+                aria-label="Télécharger mon CV en format PDF"
               >
                 <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6"
+                  className="w-4 h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -287,11 +270,8 @@ export default function Presentation() {
                     d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                   />
                 </svg>
-                Télécharger mon Curriculum Vitae (PDF)
+                Télécharger PDF
               </a>
-              <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-3">
-                Format PDF complet — Le fichier doit être présent dans <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">/public/AudetteJeremy-CV.pdf</code>
-              </p>
             </div>
           </div>
         </section>

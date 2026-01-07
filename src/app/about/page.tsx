@@ -69,12 +69,45 @@ export default function About() {
   const languages = ['Français', 'Anglais'];
 
   return (
-    <Window title="À propos">
+    <Window title="CV">
       <div className="p-4 sm:p-6 md:p-8 lg:p-12">
-        {/* Introduction */}
+        {/* Header */}
         <section className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-            À propos de moi
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">
+            CV
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-6 sm:mb-8">
+            Développeur web – Montréal
+          </p>
+          
+          {/* CV Download Button - Moved to top */}
+          <div className="mb-6 sm:mb-8">
+            <a
+              href="/AudetteJeremy-CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl"
+            >
+              <svg
+                className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+              Télécharger mon CV (PDF)
+            </a>
+          </div>
+          
+          {/* Résumé */}
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+            Résumé
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none">
             <p className="text-gray-700 dark:text-gray-300 mb-4">
@@ -104,67 +137,75 @@ export default function About() {
           </div>
         </section>
 
-        {/* Compétences techniques */}
+        {/* Compétences techniques - Chips */}
         <section className="mb-8 sm:mb-12">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             Compétences techniques
-          </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+          </h2>
+          <div className="space-y-4 sm:space-y-6">
             <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
-              <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">Développement Front‑End</h4>
-              <ul className="space-y-1.5 sm:space-y-2">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">Développement Front‑End</h3>
+              <div className="flex flex-wrap gap-2">
                 {skills.frontEnd.map((item) => (
-                  <li key={item} className="text-sm sm:text-base text-gray-700 dark:text-gray-300 flex items-start">
-                    <span className="mt-2 w-2 h-2 bg-emerald-600 rounded-full mr-2 sm:mr-3 shrink-0" />
-                    <span className="break-words">{item}</span>
-                  </li>
+                  <span
+                    key={item}
+                    className="px-3 py-1.5 text-xs sm:text-sm font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 rounded-full"
+                  >
+                    {item}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
 
             <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
-              <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">Développement Back‑End</h4>
-              <ul className="space-y-1.5 sm:space-y-2">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">Développement Back‑End</h3>
+              <div className="flex flex-wrap gap-2">
                 {skills.backEnd.map((item) => (
-                  <li key={item} className="text-sm sm:text-base text-gray-700 dark:text-gray-300 flex items-start">
-                    <span className="mt-2 w-2 h-2 bg-emerald-600 rounded-full mr-2 sm:mr-3 shrink-0" />
-                    <span className="break-words">{item}</span>
-                  </li>
+                  <span
+                    key={item}
+                    className="px-3 py-1.5 text-xs sm:text-sm font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 rounded-full"
+                  >
+                    {item}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
 
             <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
-              <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">Design & Multimédia</h4>
-              <ul className="space-y-1.5 sm:space-y-2">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">Design & Multimédia</h3>
+              <div className="flex flex-wrap gap-2">
                 {skills.design.map((item) => (
-                  <li key={item} className="text-sm sm:text-base text-gray-700 dark:text-gray-300 flex items-start">
-                    <span className="mt-2 w-2 h-2 bg-emerald-600 rounded-full mr-2 sm:mr-3 shrink-0" />
-                    <span className="break-words">{item}</span>
-                  </li>
+                  <span
+                    key={item}
+                    className="px-3 py-1.5 text-xs sm:text-sm font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 rounded-full"
+                  >
+                    {item}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
 
             <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
-              <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">Outils & environnements</h4>
-              <ul className="space-y-1.5 sm:space-y-2">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">Outils & environnements</h3>
+              <div className="flex flex-wrap gap-2">
                 {skills.tools.map((item) => (
-                  <li key={item} className="text-sm sm:text-base text-gray-700 dark:text-gray-300 flex items-start">
-                    <span className="mt-2 w-2 h-2 bg-emerald-600 rounded-full mr-2 sm:mr-3 shrink-0" />
-                    <span className="break-words">{item}</span>
-                  </li>
+                  <span
+                    key={item}
+                    className="px-3 py-1.5 text-xs sm:text-sm font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 rounded-full"
+                  >
+                    {item}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Éducation */}
+        {/* Formation */}
         <section className="mb-8 sm:mb-12">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             Formation
-          </h3>
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
               <h4 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">
@@ -195,9 +236,9 @@ export default function About() {
 
         {/* Expérience */}
         <section className="mb-8 sm:mb-12">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             Expérience
-          </h3>
+          </h2>
           <div className="space-y-4 sm:space-y-6">
             {experiences.map((exp) => (
               <div
@@ -226,11 +267,11 @@ export default function About() {
           </div>
         </section>
 
-        {/* Compétences personnelles & langues */}
+        {/* Langues & intérêts */}
         <section className="mb-8 sm:mb-12">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-            Compétences personnelles & langues
-          </h3>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+            Langues & intérêts
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
               <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">Qualités</h4>
@@ -269,33 +310,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* Curriculum Vitae Download */}
-        <section className="text-center">
-          <a
-            href="/AudetteJeremy-CV.pdf"
-            className="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-            Télécharger mon Curriculum Vitae
-          </a>
-          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 sm:mt-3 px-4">
-            Format PDF — place le fichier `Jeremy_Audette_CV_web.pdf` dans `public/` si besoin.
-          </p>
-        </section>
       </div>
     </Window>
   );

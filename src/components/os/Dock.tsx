@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { NAV_MOBILE } from '@/config/nav';
 
 interface DockItem {
   href: string;
@@ -10,13 +11,19 @@ interface DockItem {
   icon: string;
 }
 
-const dockItems: DockItem[] = [
-  { href: '/', label: 'Accueil', icon: '🏠' },
-  { href: '/presentation', label: 'Présentation', icon: '⭐' },
-  { href: '/projects', label: 'Projets', icon: '💼' },
-  { href: '/about', label: 'À propos', icon: '👤' },
-  { href: '/contact', label: 'Contact', icon: '✉️' },
-];
+const dockIcons: Record<string, string> = {
+  '/': '🏠',
+  '/presentation': '⭐',
+  '/projects': '💼',
+  '/about': '📄',
+  '/contact': '✉️',
+};
+
+const dockItems: DockItem[] = NAV_MOBILE.map((item) => ({
+  href: item.href,
+  label: item.label,
+  icon: dockIcons[item.href] || '📄',
+}));
 
 export default function Dock() {
   const pathname = usePathname();

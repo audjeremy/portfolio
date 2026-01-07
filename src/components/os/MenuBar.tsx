@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { NAV_TOP } from '@/config/nav';
 
 export default function MenuBar() {
   const pathname = usePathname();
@@ -30,14 +31,6 @@ export default function MenuBar() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
-  const navItems = [
-    { href: '/', label: 'Accueil' },
-    { href: '/presentation', label: 'Présentation' },
-    { href: '/projects', label: 'Projets' },
-    { href: '/about', label: 'À propos' },
-    { href: '/contact', label: 'Contact' },
-  ];
-
   return (
     <>
       <div className="os-menubar">
@@ -54,12 +47,12 @@ export default function MenuBar() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-4">
-              {navItems.map((item) => (
+              {NAV_TOP.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={`text-xs font-medium transition-colors ${
-                    pathname === item.href
+                    pathname === item.href || (item.href === '/projects' && pathname.startsWith('/projects/'))
                       ? 'text-emerald-700 dark:text-emerald-300'
                       : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                   }`}
@@ -123,13 +116,13 @@ export default function MenuBar() {
       {mobileMenuOpen && (
         <div className="md:hidden fixed top-8 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 shadow-lg">
           <nav className="px-4 py-3 space-y-1" aria-label="Navigation mobile">
-            {navItems.map((item) => (
+            {NAV_TOP.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  pathname === item.href
+                  pathname === item.href || (item.href === '/projects' && pathname.startsWith('/projects/'))
                     ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
