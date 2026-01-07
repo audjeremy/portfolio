@@ -269,7 +269,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* CV Download */}
+        {/* Curriculum Vitae Download */}
         <section className="text-center">
           <a
             href="/AudetteJeremy-CV.pdf"
@@ -290,7 +290,7 @@ export default function About() {
                 d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               />
             </svg>
-            Télécharger mon CV
+            Télécharger mon Curriculum Vitae
           </a>
           <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 sm:mt-3 px-4">
             Format PDF — place le fichier `Jeremy_Audette_CV_web.pdf` dans `public/` si besoin.

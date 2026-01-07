@@ -1,6 +1,7 @@
 'use client';
 
-import { ReactNode } from 'react';
+import { ReactNode, useState, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 
 interface WindowProps {
   title: string;
@@ -9,8 +10,34 @@ interface WindowProps {
 }
 
 export default function Window({ title, subtitle, children }: WindowProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const [isClosing, setIsClosing] = useState(false);
+  const [isOpening, setIsOpening] = useState(false);
+
+  useEffect(() => {
+    // Animation d'ouverture au montage (sauf pour la page d'accueil)
+    if (pathname !== '/') {
+      setIsOpening(true);
+      const timer = setTimeout(() => {
+        setIsOpening(false);
+      }, 400);
+      return () => clearTimeout(timer);
+    }
+  }, [pathname]);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    // Attendre la fin de l'animation avant de naviguer
+    setTimeout(() => {
+      router.push('/');
+    }, 300);
+  };
+
   return (
-    <div className="os-window">
+    <div 
+      className={`os-window ${isOpening ? 'os-window-opening' : ''} ${isClosing ? 'os-window-closing' : ''}`}
+    >
       {/* Title Bar */}
       <div className="os-titlebar">
         {/* Traffic Lights */}
@@ -18,7 +45,7 @@ export default function Window({ title, subtitle, children }: WindowProps) {
           <button
             className="os-traffic-light red"
             aria-label="Fermer"
-            onClick={() => {}}
+            onClick={handleClose}
           />
           <button
             className="os-traffic-light yellow"
