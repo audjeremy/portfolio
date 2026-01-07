@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Jeremy Audette' }],
   creator: 'Jeremy Audette',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
   openGraph: {
     type: 'website',
     locale: 'fr_CA',

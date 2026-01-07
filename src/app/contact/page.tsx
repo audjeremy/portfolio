@@ -56,47 +56,47 @@ export default function Contact() {
 
   return (
     <Window title="Contact">
-      <div className="p-8 md:p-12">
+      <div className="p-4 sm:p-6 md:p-8 lg:p-12">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
               Contactez-moi
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 px-4">
               Une question ? Un projet ? N'hésitez pas à me contacter.
               Je vous répondrai dans les plus brefs délais.
             </p>
           </div>
 
           {/* Quick info */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
             <a
               href="mailto:jeremyaudette@icloud.com"
-              className="group bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-shadow"
+              className="group bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-shadow"
             >
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Email</p>
-              <p className="text-gray-900 dark:text-white font-semibold break-all group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
+              <p className="text-sm sm:text-base text-gray-900 dark:text-white font-semibold break-all group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
                 jeremyaudette@icloud.com
               </p>
             </a>
             <a
               href="tel:+14385044533"
-              className="group bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-shadow"
+              className="group bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-shadow"
             >
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Téléphone</p>
-              <p className="text-gray-900 dark:text-white font-semibold group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
+              <p className="text-sm sm:text-base text-gray-900 dark:text-white font-semibold group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
                 (438) 504-4533
               </p>
             </a>
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200/50 dark:border-gray-700/50">
+            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-gray-200/50 dark:border-gray-700/50">
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Ville</p>
-              <p className="text-gray-900 dark:text-white font-semibold">Montréal</p>
+              <p className="text-sm sm:text-base text-gray-900 dark:text-white font-semibold">Montréal</p>
             </div>
           </div>
 
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             {/* Name Field */}
             <div>
               <label
@@ -112,7 +112,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 dark:text-white"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 dark:text-white"
                 placeholder="Votre nom"
               />
             </div>
@@ -132,7 +132,7 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 dark:text-white"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 dark:text-white"
                 placeholder="votre@email.com"
               />
             </div>
@@ -152,7 +152,7 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none text-gray-900 dark:text-white"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none text-gray-900 dark:text-white"
                 placeholder="Votre message..."
               />
             </div>
@@ -161,7 +161,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="group w-full px-8 py-3 bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-400 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl disabled:cursor-not-allowed hover:scale-[1.02]"
+              className="group w-full px-6 sm:px-8 py-2.5 sm:py-3 bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-sm sm:text-base font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl disabled:cursor-not-allowed hover:scale-[1.02]"
             >
               <span className="inline-flex items-center justify-center gap-2">
                 {status === 'loading' ? (
@@ -203,11 +203,11 @@ export default function Contact() {
           )}
 
           {/* Additional Contact Info */}
-          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center">
+          <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-200 dark:border-gray-700">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4 text-center">
               Autres moyens de contact
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 text-center px-4">
               Vous pouvez aussi me joindre directement par email ou téléphone.
             </p>
           </div>
