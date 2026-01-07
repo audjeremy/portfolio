@@ -1,0 +1,36 @@
+# Cursor AI Rules pour ce projet
+
+## Style de code
+- Utiliser TypeScript strict
+- Composants React fonctionnels avec hooks
+- Préférer les arrow functions pour les composants
+- Types explicites pour toutes les props
+- Nommage: PascalCase pour composants, camelCase pour fonctions
+
+## Conventions Tailwind
+- Utiliser les classes Tailwind en priorité
+- Classes custom préfixées par "os-" pour l'interface macOS
+- Éviter les styles inline sauf cas exceptionnels
+
+## Next.js App Router
+- Pages dans src/app/
+- Composants réutilisables dans src/components/
+- 'use client' uniquement quand nécessaire (hooks, événements)
+- Metadata dans layout.tsx ou page.tsx
+
+## Accessibilité
+- Toujours inclure aria-label sur les icônes
+- Focus visible sur tous les éléments interactifs
+- Structure sémantique (nav, main, section, etc.)
+- Alt text sur les images
+
+## Performance
+- Préférer Server Components quand possible
+- Lazy loading pour les images lourdes
+- Static generation pour les pages projets
+
+## Documentation
+- Commenter les fonctions complexes
+- JSDoc pour les utilitaires
+- README à jour avec les changements majeurs
+

@@ -1,0 +1,159 @@
+📦 PORTFOLIO MACOS - STRUCTURE DU PROJET
+=====================================
+
+portfolio/
+│
+├── 📄 Configuration & Documentation
+│   ├── .eslintrc.json          # Configuration ESLint
+│   ├── .gitignore              # Fichiers à ignorer par Git
+│   ├── package.json            # Dépendances npm
+│   ├── tsconfig.json           # Configuration TypeScript
+│   ├── tailwind.config.ts      # Configuration Tailwind CSS
+│   ├── postcss.config.js       # Configuration PostCSS
+│   ├── next.config.js          # Configuration Next.js
+│   ├── LICENSE                 # Licence MIT
+│   │
+│   └── 📚 Documentation
+│       ├── README.md           # Documentation principale
+│       ├── START_HERE.md       # Guide de démarrage (COMMENCEZ ICI!)
+│       ├── QUICKSTART.md       # Personnalisation rapide
+│       ├── IMPLEMENTATION.md   # Détails techniques
+│       ├── CHANGELOG.md        # Historique des changements
+│       └── CONTRIBUTING.md     # Guide de contribution
+│
+├── 🎨 Assets publics (public/)
+│   ├── wallpaper.jpg          # Fond d'écran macOS (à remplacer)
+│   ├── cv.pdf                 # CV à télécharger (à ajouter)
+│   └── projects/              # Images des projets
+│       └── .gitkeep           # (ajoutez vos images ici)
+│
+└── 💻 Code source (src/)
+    │
+    ├── 📱 Application (app/)
+    │   │
+    │   ├── layout.tsx         # Layout principal avec OS wrapper
+    │   ├── page.tsx           # 🏠 Page d'accueil
+    │   ├── not-found.tsx      # 404 personnalisée
+    │   ├── globals.css        # 🎨 Styles globaux + thème macOS
+    │   ├── robots.ts          # Configuration SEO robots
+    │   ├── sitemap.ts         # Génération sitemap.xml
+    │   │
+    │   ├── about/
+    │   │   └── page.tsx       # 👤 Page À propos
+    │   │
+    │   ├── projects/
+    │   │   ├── page.tsx       # 💼 Liste des projets
+    │   │   └── [slug]/
+    │   │       └── page.tsx   # 📄 Détail d'un projet (dynamique)
+    │   │
+    │   ├── contact/
+    │   │   └── page.tsx       # ✉️ Formulaire de contact
+    │   │
+    │   └── api/
+    │       └── contact/
+    │           └── route.ts   # 🔌 API endpoint formulaire
+    │
+    ├── 🧩 Composants (components/)
+    │   │
+    │   ├── SkipToMain.tsx     # ♿ Accessibilité (skip link)
+    │   │
+    │   └── os/                # Composants interface macOS
+    │       ├── MenuBar.tsx    # Barre de menu (haut)
+    │       ├── Dock.tsx       # Dock interactif (bas)
+    │       └── Window.tsx     # Fenêtre réutilisable
+    │
+    ├── 📊 Données (data/)
+    │   └── projects.ts        # Liste des projets (À MODIFIER!)
+    │
+    └── 🛠️ Utilitaires (lib/)
+        └── projects.ts        # Helpers pour récupérer les projets
+
+
+STATISTIQUES
+============
+
+📁 Total fichiers créés:      35
+📄 Fichiers TypeScript/TSX:   16
+🎨 Fichiers CSS:              1
+📚 Fichiers documentation:    7
+⚙️ Fichiers configuration:    7
+🖼️ Assets/placeholders:       3
+
+PAGES WEB CRÉÉES
+================
+
+Routes publiques:
+- / (Accueil)
+- /about (À propos)
+- /projects (Liste projets)
+- /projects/provisions (Détail projet 1)
+- /projects/la-porte (Détail projet 2)
+- /projects/portfolio-macos (Détail projet 3)
+- /contact (Contact)
+- /404 (Page non trouvée)
+
+Routes techniques:
+- /api/contact (POST - API formulaire)
+- /sitemap.xml (Sitemap généré)
+- /robots.txt (Robots généré)
+
+COMPOSANTS RÉUTILISABLES
+=========================
+
+OS Components:
+✓ MenuBar    - Barre de menu avec nav + horloge
+✓ Dock       - Dock avec icônes + hover effects
+✓ Window     - Fenêtre avec titlebar + traffic lights
+
+Utility Components:
+✓ SkipToMain - Lien accessibilité
+
+FONCTIONNALITÉS
+===============
+
+✅ Interface macOS authentique (menu bar, dock, fenêtres)
+✅ Effect glass morphism sur les fenêtres
+✅ Gradient animé pour le fond d'écran
+✅ Navigation fluide entre les pages
+✅ Projets avec pages dynamiques (SSG)
+✅ Formulaire de contact avec validation
+✅ API route pour traiter les soumissions
+✅ Responsive design (mobile, tablette, desktop)
+✅ Dark mode automatique
+✅ Accessibilité (clavier, ARIA, contraste)
+✅ SEO optimisé (metadata, sitemap, robots)
+✅ TypeScript pour la sécurité du code
+✅ Tailwind CSS pour le styling
+✅ Documentation complète
+
+PROCHAINES ÉTAPES
+=================
+
+Pour personnaliser votre portfolio:
+
+1. 📖 Lisez START_HERE.md
+2. ✏️ Modifiez vos informations personnelles
+3. 💼 Ajoutez vos projets dans src/data/projects.ts
+4. 🖼️ Ajoutez vos images dans public/
+5. 🚀 Testez avec: npm install && npm run dev
+6. 🌐 Déployez sur Vercel
+
+TECHNOLOGIES UTILISÉES
+======================
+
+- Next.js 14 (App Router)
+- React 18
+- TypeScript 5
+- Tailwind CSS 3
+- PostCSS
+- ESLint
+
+Aucune dépendance lourde! 
+Pas de Framer Motion, pas de bibliothèques d'UI.
+CSS et transitions natives uniquement.
+
+=====================================
+Créé avec ❤️ le 7 janvier 2025
+Portfolio macOS v0.1.0
+=====================================
+
