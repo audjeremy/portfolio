@@ -73,9 +73,6 @@ export default function About() {
       <div className="p-4 sm:p-6 md:p-8 lg:p-12">
         {/* Header */}
         <section className="mb-8 sm:mb-12">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">
-            CV
-          </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-6 sm:mb-8">
             Développeur web – Montréal
           </p>
@@ -222,7 +219,7 @@ export default function About() {
                 AEC : Développement de sites web transactionnels
               </h4>
               <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-2 sm:mb-3">
-                Collège Ahuntsic • Février 2026
+                Collège Ahuntsic • Février 2026 (fin prévue)
               </p>
               <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
                 Formation full stack axée sur la conception, le déploiement et la gestion de sites transactionnels.

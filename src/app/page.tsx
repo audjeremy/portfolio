@@ -1,12 +1,14 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Window from '@/components/os/Window';
 import ProfilePicture from '@/components/ProfilePicture';
 import SkillsDropdown from '@/components/SkillsDropdown';
 import { getAllProjects } from '@/lib/projects';
 
 export default function Home() {
-  const projects = getAllProjects().slice(0, 3); // Top 3 projets
-  
+  const allProjects = getAllProjects();
+  const featuredSlugs = ['recolte', 'provisions', 'portfolio'];
+  const projects = allProjects.filter((project) => featuredSlugs.includes(project.slug));
   const skills = {
     frontEnd: ['HTML', 'CSS (Grid/Flexbox)', 'JavaScript', 'TypeScript', 'React', 'Tailwind'],
     backEnd: ['PHP', 'Laravel', 'Node.js', 'Express.js', 'REST API', 'MySQL', 'MongoDB'],
@@ -16,10 +18,8 @@ export default function Home() {
   return (
     <Window title="Accueil">
       <div className="p-4 sm:p-6 md:p-8 lg:p-12">
-        {/* Hero Section */}
         <section className="text-center mb-8 sm:mb-12 animate-fadeIn">
           <div className="flex flex-col items-center mb-6 sm:mb-8">
-            {/* Photo de profil */}
             <ProfilePicture />
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 px-2">
               Bonjour, je suis{' '}
@@ -36,8 +36,6 @@ export default function Home() {
               avec possibilité d'embauche par la suite.
             </p>
           </div>
-
-          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fadeIn delay-200 px-4">
             <Link
               href="/projects"
@@ -69,8 +67,6 @@ export default function Home() {
             </Link>
           </div>
         </section>
-
-        {/* Featured Projects Section */}
         <section className="mt-8 sm:mt-12 md:mt-16 animate-fadeIn delay-300">
           <div className="flex items-center justify-between mb-6 sm:mb-8">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
@@ -92,18 +88,23 @@ export default function Home() {
                 key={project.slug}
                 className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
               >
-                {/* Project Image Placeholder */}
-                <div className="w-full h-40 sm:h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                  <span className="text-4xl sm:text-6xl" role="img" aria-label={project.title}>
-                    {project.slug === 'recolte' && '🌾'}
-                    {project.slug === 'affiche-provisions' && '🎨'}
-                    {project.slug === 'provisions' && '🛒'}
-                    {project.slug === 'blonde-biscuiterie' && '🍪'}
-                    {project.slug === 'festipop' && '🎵'}
-                    {project.slug === 'portfolio' && '💻'}
-                  </span>
+                <div className="relative w-full h-40 sm:h-48 bg-gray-100 dark:bg-gray-800 overflow-hidden">
+                  {project.images.length > 0 ? (
+                    <Image
+                      src={project.images[0]}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                      <span className="text-4xl sm:text-6xl" role="img" aria-label={project.title}>
+                        🎵
+                      </span>
+                    </div>
+                  )}
                 </div>
-                
                 <div className="p-4 sm:p-6">
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
                     {project.title}
@@ -111,8 +112,6 @@ export default function Home() {
                   <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 sm:mb-4 line-clamp-2">
                     {project.short}
                   </p>
-                  
-                  {/* Tech Tags */}
                   <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
                     {project.tech.slice(0, 3).map((tech) => (
                       <span
@@ -123,8 +122,6 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                  
-                  {/* Action Buttons */}
                   <div className="flex flex-wrap gap-2">
                     <Link
                       href={`/projects/${project.slug}`}
@@ -166,8 +163,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        {/* Skills Section - Dropdown */}
         <section className="mt-8 sm:mt-12 md:mt-16 animate-fadeIn delay-400">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 text-center">
             Compétences
@@ -178,8 +173,6 @@ export default function Home() {
             <SkillsDropdown title="Outils" items={skills.tools} />
           </div>
         </section>
-
-        {/* CV en bref */}
         <section className="mt-8 sm:mt-12 md:mt-16 animate-fadeIn delay-500">
           <div className="bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-emerald-300/30 dark:border-emerald-700/30">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
@@ -189,7 +182,7 @@ export default function Home() {
               <div className="flex items-start gap-3">
                 <span className="text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">Formation:</span>
                 <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                  AEC : Développement de sites web transactionnels — Collège Ahuntsic (Février 2026)
+                  AEC : Développement de sites web transactionnels — Collège Ahuntsic (Février 2026, fin prévue)
                 </p>
               </div>
               <div className="flex items-start gap-3">

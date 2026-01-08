@@ -21,12 +21,11 @@ export default function MenuBar() {
     };
 
     updateTime();
-    const interval = setInterval(updateTime, 30000); // Update every 30 seconds
+    const interval = setInterval(updateTime, 30000);
 
     return () => clearInterval(interval);
   }, []);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
@@ -35,7 +34,6 @@ export default function MenuBar() {
     <>
       <div className="os-menubar">
         <div className="max-w-full mx-auto px-3 sm:px-4 h-full flex items-center justify-between">
-          {/* Left side: Logo + Nav (desktop) */}
           <nav className="flex items-center gap-4 sm:gap-6" aria-label="Navigation principale">
             <Link
               href="/"
@@ -44,15 +42,15 @@ export default function MenuBar() {
               <span className="hidden sm:inline">Jeremy Audette</span>
               <span className="sm:hidden">J.A.</span>
             </Link>
-            
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-4">
               {NAV_TOP.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={`text-xs font-medium transition-colors ${
-                    pathname === item.href || (item.href === '/projects' && pathname.startsWith('/projects/'))
+                    pathname === item.href || 
+                    (item.href === '/projects' && pathname.startsWith('/projects/')) ||
+                    (item.href === '/about' && pathname === '/about')
                       ? 'text-emerald-700 dark:text-emerald-300'
                       : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                   }`}
@@ -63,35 +61,10 @@ export default function MenuBar() {
             </div>
           </nav>
 
-          {/* Right side: Curriculum Vitae + Time + Mobile Menu Button */}
           <div className="flex items-center gap-2 sm:gap-4">
-            <a
-              href="/AudetteJeremy-CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-1.5 px-2 sm:px-3 py-1.5 bg-emerald-600/90 hover:bg-emerald-600 text-white text-xs font-medium rounded-md transition-all hover:shadow-lg hover:scale-105"
-              aria-label="Télécharger mon Curriculum Vitae"
-            >
-              <svg
-                className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-              <span className="hidden sm:inline">Curriculum Vitae</span>
-            </a>
             <div className="hidden sm:block text-xs font-medium text-gray-700 dark:text-gray-300">
               {time}
             </div>
-            
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden p-1.5 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -112,7 +85,6 @@ export default function MenuBar() {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed top-8 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 shadow-lg">
           <nav className="px-4 py-3 space-y-1" aria-label="Navigation mobile">
@@ -122,7 +94,9 @@ export default function MenuBar() {
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  pathname === item.href || (item.href === '/projects' && pathname.startsWith('/projects/'))
+                  pathname === item.href || 
+                  (item.href === '/projects' && pathname.startsWith('/projects/')) ||
+                  (item.href === '/about' && pathname === '/about')
                     ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}

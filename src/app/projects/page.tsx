@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Window from '@/components/os/Window';
 import { getAllProjects } from '@/lib/projects';
 
@@ -26,19 +27,23 @@ export default function Projects() {
               className="group block bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover-lift animate-fadeIn"
               style={{ animationDelay: `${projects.indexOf(project) * 0.1}s` }}
             >
-              {/* Project Image Placeholder */}
-              <div className="w-full h-40 sm:h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                <span className="text-4xl sm:text-6xl" role="img" aria-label={project.title}>
-                  {project.slug === 'recolte' && '🌾'}
-                  {project.slug === 'affiche-provisions' && '🎨'}
-                  {project.slug === 'provisions' && '🛒'}
-                  {project.slug === 'blonde-biscuiterie' && '🍪'}
-                  {project.slug === 'festipop' && '🎵'}
-                  {project.slug === 'portfolio' && '💻'}
-                </span>
+              <div className="relative w-full h-40 sm:h-48 bg-gray-100 dark:bg-gray-800 overflow-hidden">
+                {project.images.length > 0 ? (
+                  <Image
+                    src={project.images[0]}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                    <span className="text-4xl sm:text-6xl" role="img" aria-label={project.title}>
+                      🎵
+                    </span>
+                  </div>
+                )}
               </div>
-
-              {/* Project Info */}
               <div className="p-4 sm:p-6">
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
                   {project.title}
@@ -46,8 +51,6 @@ export default function Projects() {
                 <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 sm:mb-4 line-clamp-2">
                   {project.short}
                 </p>
-
-                {/* Tech Pills */}
                 <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {project.tech.slice(0, 3).map((tech) => (
                     <span

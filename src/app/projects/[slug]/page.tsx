@@ -10,7 +10,6 @@ interface ProjectPageProps {
   };
 }
 
-// Generate static params for all projects
 export async function generateStaticParams() {
   const slugs = getAllProjectSlugs();
   return slugs.map((slug) => ({
@@ -28,7 +27,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   return (
     <Window title={project.title}>
       <div className="p-4 sm:p-6 md:p-8 lg:p-12">
-        {/* Back Button */}
         <Link
           href="/projects"
           className="inline-flex items-center text-sm sm:text-base text-emerald-700 dark:text-emerald-300 hover:underline mb-4 sm:mb-6"
@@ -48,8 +46,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </svg>
           Retour aux projets
         </Link>
-
-        {/* Project Hero */}
         <div className="mb-6 sm:mb-8">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
             {project.title}
@@ -57,8 +53,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-4 sm:mb-6">
             {project.short}
           </p>
-
-          {/* Links */}
           <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6">
             {project.github && (
               <a
@@ -101,8 +95,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               </a>
             )}
           </div>
-
-          {/* Tech Stack */}
           <div className="flex flex-wrap gap-2">
             {project.tech.map((tech) => (
               <span
@@ -114,8 +106,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             ))}
           </div>
         </div>
-
-        {/* Description */}
         <section className="mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
             Description
@@ -124,8 +114,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             {project.description}
           </p>
         </section>
-
-        {/* Highlights */}
         <section className="mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
             Points forts
@@ -142,32 +130,32 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             ))}
           </ul>
         </section>
-
-        {/* Images Preview */}
         <section>
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
             Aperçu
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {project.images.length > 0 ? (
               project.images.map((imagePath, index) => (
                 <div
                   key={index}
-                  className="relative w-full min-h-64 sm:min-h-96 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 flex items-center justify-center p-4"
+                  className="relative w-full min-h-[300px] sm:min-h-[400px] bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-md transition-shadow flex items-center justify-center"
                 >
                   <Image
                     src={imagePath}
-                    alt={`Aperçu du projet ${project.title}`}
+                    alt={`Aperçu ${index + 1} du projet ${project.title}`}
                     fill
-                    className="object-contain"
+                    className="object-contain p-4"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={90}
+                    priority={index === 0}
                   />
                 </div>
               ))
             ) : (
-              <div className="w-full h-48 sm:h-64 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-xl flex flex-col items-center justify-center border border-gray-200/50 dark:border-gray-700/50">
-                <span className="text-4xl mb-2" role="img" aria-hidden="true">🖼️</span>
-                <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Aperçu bientôt</span>
+              <div className="w-full min-h-[300px] sm:min-h-[400px] bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-xl flex flex-col items-center justify-center border border-gray-200/50 dark:border-gray-700/50">
+                <span className="text-4xl sm:text-5xl mb-3" role="img" aria-hidden="true">🖼️</span>
+                <span className="text-sm sm:text-base text-gray-500 dark:text-gray-400 font-medium">Aperçu bientôt</span>
               </div>
             )}
           </div>

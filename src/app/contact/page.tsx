@@ -11,11 +11,45 @@ export default function Contact() {
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+
+  const isValidEmail = (email: string): boolean => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validateForm = (): boolean => {
+    const errors: Record<string, string> = {};
+
+    if (!formData.name.trim()) {
+      errors.name = 'Le nom est requis';
+    }
+
+    if (!formData.email.trim()) {
+      errors.email = 'L\'adresse courriel est requise';
+    } else if (!isValidEmail(formData.email)) {
+      errors.email = 'Veuillez entrer une adresse courriel valide';
+    }
+
+    if (!formData.message.trim()) {
+      errors.message = 'Le message est requis';
+    } else if (formData.message.trim().length < 10) {
+      errors.message = 'Le message doit contenir au moins 10 caractères';
+    }
+
+    setFieldErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus('loading');
     setErrorMessage('');
+    setFieldErrors({});
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setStatus('loading');
 
     try {
       const response = await fetch('/api/contact', {
@@ -34,8 +68,6 @@ export default function Contact() {
 
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
-      
-      // Reset success message after 5 seconds
       setTimeout(() => {
         setStatus('idle');
       }, 5000);
@@ -48,17 +80,24 @@ export default function Contact() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
 
   return (
     <Window title="Contact">
       <div className="p-4 sm:p-6 md:p-8 lg:p-12">
         <div className="max-w-2xl mx-auto">
-          {/* Header */}
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
               Contactez-moi
@@ -68,8 +107,6 @@ export default function Contact() {
               Je vous répondrai dans les plus brefs délais.
             </p>
           </div>
-
-          {/* Quick info */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
             <a
               href="mailto:jeremyaudette@icloud.com"
@@ -94,10 +131,7 @@ export default function Contact() {
               <p className="text-sm sm:text-base text-gray-900 dark:text-white font-semibold">Montréal</p>
             </div>
           </div>
-
-          {/* Contact Form */}
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-            {/* Name Field */}
             <div>
               <label
                 htmlFor="name"
@@ -111,13 +145,17 @@ export default function Contact() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                required
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 dark:text-white"
+                className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/50 dark:bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 dark:text-white ${
+                  fieldErrors.name
+                    ? 'border-red-300 dark:border-red-700'
+                    : 'border-gray-300 dark:border-gray-600'
+                }`}
                 placeholder="Votre nom"
               />
+              {fieldErrors.name && (
+                <p className="mt-1 text-sm text-red-600 dark:text-red-400">{fieldErrors.name}</p>
+              )}
             </div>
-
-            {/* Email Field */}
             <div>
               <label
                 htmlFor="email"
@@ -131,13 +169,17 @@ export default function Contact() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                required
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 dark:text-white"
+                className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/50 dark:bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 dark:text-white ${
+                  fieldErrors.email
+                    ? 'border-red-300 dark:border-red-700'
+                    : 'border-gray-300 dark:border-gray-600'
+                }`}
                 placeholder="votre@email.com"
               />
+              {fieldErrors.email && (
+                <p className="mt-1 text-sm text-red-600 dark:text-red-400">{fieldErrors.email}</p>
+              )}
             </div>
-
-            {/* Message Field */}
             <div>
               <label
                 htmlFor="message"
@@ -150,14 +192,23 @@ export default function Contact() {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                required
                 rows={6}
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none text-gray-900 dark:text-white"
+                className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/50 dark:bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none text-gray-900 dark:text-white ${
+                  fieldErrors.message
+                    ? 'border-red-300 dark:border-red-700'
+                    : 'border-gray-300 dark:border-gray-600'
+                }`}
                 placeholder="Votre message..."
               />
+              {fieldErrors.message && (
+                <p className="mt-1 text-sm text-red-600 dark:text-red-400">{fieldErrors.message}</p>
+              )}
+              {!fieldErrors.message && formData.message.length > 0 && (
+                <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                  {formData.message.length}/10 caractères minimum
+                </p>
+              )}
             </div>
-
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={status === 'loading'}
@@ -183,8 +234,6 @@ export default function Contact() {
               </span>
             </button>
           </form>
-
-          {/* Success Message */}
           {status === 'success' && (
             <div className="mt-6 p-4 bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 rounded-lg">
               <p className="text-green-800 dark:text-green-300 text-center font-medium">
@@ -192,17 +241,13 @@ export default function Contact() {
               </p>
             </div>
           )}
-
-          {/* Error Message */}
-          {status === 'error' && (
+          {status === 'error' && errorMessage && (
             <div className="mt-6 p-4 bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-700 rounded-lg">
               <p className="text-red-800 dark:text-red-300 text-center font-medium">
                 ✗ {errorMessage}
               </p>
             </div>
           )}
-
-          {/* Additional Contact Info */}
           <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-200 dark:border-gray-700">
             <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4 text-center">
               Autres moyens de contact

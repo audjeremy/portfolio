@@ -13,9 +13,9 @@ interface DockItem {
 
 const dockIcons: Record<string, string> = {
   '/': '🏠',
-  '/presentation': '⭐',
   '/projects': '💼',
   '/about': '📄',
+  '/presentation': '⭐',
   '/contact': '✉️',
 };
 
@@ -30,11 +30,8 @@ export default function Dock() {
   const [clickedItem, setClickedItem] = useState<string | null>(null);
 
   const handleItemClick = (href: string) => {
-    // Ne pas animer si c'est la même page
     if (pathname === href) return;
-    
     setClickedItem(href);
-    // Reset après un court délai pour permettre l'animation
     setTimeout(() => {
       setClickedItem(null);
     }, 300);
@@ -46,8 +43,8 @@ export default function Dock() {
         {dockItems.map((item) => {
           const isActive = pathname === item.href || 
             (item.href === '/projects' && pathname.startsWith('/projects/')) ||
-            (item.href === '/presentation' && pathname === '/presentation') ||
-            (item.href === '/about' && pathname === '/about');
+            (item.href === '/about' && pathname === '/about') ||
+            (item.href === '/presentation' && pathname === '/presentation');
           
           const isClicked = clickedItem === item.href;
           
