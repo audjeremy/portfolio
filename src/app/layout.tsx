@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import MenuBar from '@/components/os/MenuBar';
 import Dock from '@/components/os/Dock';
@@ -21,11 +21,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Jeremy Audette' }],
   creator: 'Jeremy Audette',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
   openGraph: {
     type: 'website',
     locale: 'fr_CA',
@@ -34,6 +29,12 @@ export const metadata: Metadata = {
       "Portfolio de Jeremy Audette — développeur web. Projets, compétences et contact.",
     siteName: 'Jeremy Audette',
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({

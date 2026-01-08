@@ -8,22 +8,22 @@ export default function Presentation() {
       <div className="p-4 sm:p-6 md:p-8 lg:p-12">
         {/* Section 1: Qui je suis */}
         <section className="mb-8 sm:mb-12 animate-fadeIn">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
           Bonjour! Je suis Jeremy Audette
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-start">
-            <div className="prose prose-lg dark:prose-invert max-w-none flex-1 order-2 sm:order-1">
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
+            <div className="prose prose-lg max-w-none flex-1 order-2 sm:order-1">
+            <p className="text-gray-700 mb-4">
   Au-delà du développement, je suis quelqu’un de curieux et ouvert, qui aime explorer, apprendre et
   comprendre ce qui l’entoure. J’apprécie les projets qui me permettent de réfléchir, de créer et de
   donner du sens à ce que je fais, autant dans le travail que dans le quotidien.
 </p>
-<p className="text-gray-700 dark:text-gray-300 mb-4">
+<p className="text-gray-700 mb-4">
   Ce que j’aime particulièrement, c’est partir d’une idée et la voir évoluer peu à peu vers quelque
   chose de concret et utile. J’accorde beaucoup d’importance à l’expérience des personnes qui utilisent
   ce que je crée, en cherchant toujours la simplicité, la clarté et le confort d’utilisation.
 </p>
-<p className="text-gray-700 dark:text-gray-300">
+<p className="text-gray-700">
   En dehors du travail, je suis passionné par le cinéma, la musique et la cuisine. Ces intérêts font
   partie de mon quotidien et nourrissent ma créativité, m’aidant à aborder les projets avec un regard
   différent et plus humain.
@@ -37,7 +37,7 @@ export default function Presentation() {
 
         {/* Section 2: Culture & inspirations */}
         <section className="mb-8 sm:mb-12 animate-fadeIn delay-200">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
             Culture & inspirations
           </h2>
 
@@ -47,12 +47,12 @@ export default function Presentation() {
               <span className="text-2xl" role="img" aria-hidden="true">
                 🎬
               </span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
                 Films préférés
               </h3>
             </div>
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50 mb-4">
-              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 mb-4">
+              <p className="text-sm sm:text-base text-gray-700 mb-4">
                 J'adore explorer différents genres de cinéma, des films d'auteur aux blockbusters.
               </p>
 
@@ -87,12 +87,12 @@ export default function Presentation() {
               <span className="text-2xl" role="img" aria-hidden="true">
                 📚
               </span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
                 Livres préférés
               </h3>
             </div>
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50 mb-4">
-              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 mb-4">
+              <p className="text-sm sm:text-base text-gray-700 mb-4">
                 La lecture est une source constante d'inspiration. Voici quelques-uns de mes livres favoris :
               </p>
               
@@ -127,12 +127,12 @@ export default function Presentation() {
               <span className="text-2xl" role="img" aria-hidden="true">
                 🎵
               </span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
                 Musique
               </h3>
             </div>
-            <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50 dark:border-gray-700/50">
-              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50">
+              <p className="text-sm sm:text-base text-gray-700 mb-4">
                 La musique fait partie intégrante de mon processus créatif. Mes chansons favorites de 2025 :
               </p>
 
@@ -177,11 +177,11 @@ export default function Presentation() {
 
         {/* CV Encart */}
         <section className="animate-fadeIn delay-400">
-          <div className="bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-emerald-300/30 dark:border-emerald-700/30">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
+          <div className="bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-emerald-300/30">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
               Curriculum Vitae
             </h2>
-            <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-6">
+            <p className="text-sm sm:text-base text-gray-700 mb-6">
               Pour le détail de mon parcours, consultez mon CV complet. Vous pouvez aussi découvrir mes projets pour voir mon travail en action.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -207,7 +207,7 @@ export default function Presentation() {
                 href="/AudetteJeremy-CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white text-sm sm:text-base font-semibold rounded-lg transition-all border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-gray-900 text-sm sm:text-base font-semibold rounded-lg transition-all border border-gray-200 shadow-md hover:shadow-lg hover:scale-105"
                 aria-label="Télécharger mon CV en format PDF"
               >
                 <svg

@@ -65,7 +65,7 @@ export default function Dock() {
                 {item.label}
               </div>
               {isActive && (
-                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full bg-gray-800 dark:bg-gray-200" />
+                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full bg-gray-800" />
               )}
             </Link>
           );

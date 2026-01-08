@@ -10,9 +10,31 @@ export default function Home() {
   const featuredSlugs = ['recolte', 'provisions', 'portfolio'];
   const projects = allProjects.filter((project) => featuredSlugs.includes(project.slug));
   const skills = {
-    frontEnd: ['HTML', 'CSS (Grid/Flexbox)', 'JavaScript', 'TypeScript', 'React', 'Tailwind'],
-    backEnd: ['PHP', 'Laravel', 'Node.js', 'Express.js', 'REST API', 'MySQL', 'MongoDB'],
-    tools: ['Figma (UX/UI)', 'Git/GitHub', 'Docker', 'npm', 'Postman', 'Vercel'],
+    frontEnd: [
+      'HTML',
+      'CSS (Flexbox, Grid, SCSS, Tailwind, Bootstrap)',
+      'JavaScript',
+      'TypeScript',
+      'React',
+      'Fetch API / JSON',
+      'Responsive Design',
+      'Figma (UX/UI)',
+    ],
+    backEnd: [
+      'PHP',
+      'Laravel',
+      'Node.js',
+      'Express.js',
+      'REST API',
+      'MVC',
+      'Authentification',
+      'MySQL',
+      'MongoDB',
+      'CRUD',
+      'Postman',
+    ],
+    design: ['Figma', 'Photoshop', 'Illustrator', 'After Effects', 'UI/UX', 'Design responsive'],
+    tools: ['Git', 'GitHub', 'Docker', 'npm', 'VS Code', 'JSON Server', 'Postman', 'Vercel', 'macOS', 'Accessibilité web'],
   };
 
   return (
@@ -21,20 +43,44 @@ export default function Home() {
         <section className="text-center mb-8 sm:mb-12 animate-fadeIn">
           <div className="flex flex-col items-center mb-6 sm:mb-8">
             <ProfilePicture />
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 px-2">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
               Bonjour, je suis{' '}
               <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">
                 Jeremy Audette
               </span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-6 sm:mb-8">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-6 sm:mb-8">
               Développeur web
             </p>
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-10 px-4">
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
               Étudiant en développement web passionné par la création d'expériences utilisateurs réfléchies,
               alliant design et logique. Je recherche un stage de fin d'études en développement web ou UI/UX,
               avec possibilité d'embauche par la suite.
             </p>
+            <div className="flex items-center justify-center gap-4 mb-6 sm:mb-8">
+              <a
+                href="https://github.com/audjeremy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-3 bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200/50 hover:shadow-lg transition-all hover:scale-110"
+                aria-label="Voir mon profil GitHub"
+              >
+                <svg className="w-6 h-6 text-gray-700 group-hover:text-gray-900 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jeremy-audette/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-3 bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200/50 hover:shadow-lg transition-all hover:scale-110"
+                aria-label="Voir mon profil LinkedIn"
+              >
+                <svg className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+            </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fadeIn delay-200 px-4">
             <Link
@@ -52,7 +98,7 @@ export default function Home() {
               href="/AudetteJeremy-CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="group px-6 sm:px-8 py-2.5 sm:py-3 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white text-sm sm:text-base font-semibold rounded-lg transition-all border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hover:scale-105 inline-flex items-center justify-center gap-2"
+              className="group px-6 sm:px-8 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-gray-900 text-sm sm:text-base font-semibold rounded-lg transition-all border border-gray-200 shadow-md hover:shadow-lg hover:scale-105 inline-flex items-center justify-center gap-2"
             >
               <svg className="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -61,7 +107,7 @@ export default function Home() {
             </a>
             <Link
               href="/contact"
-              className="px-6 sm:px-8 py-2.5 sm:py-3 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white text-sm sm:text-base font-semibold rounded-lg transition-all border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hover:scale-105"
+              className="px-6 sm:px-8 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-gray-900 text-sm sm:text-base font-semibold rounded-lg transition-all border border-gray-200 shadow-md hover:shadow-lg hover:scale-105"
             >
               Me contacter
             </Link>
@@ -69,12 +115,12 @@ export default function Home() {
         </section>
         <section className="mt-8 sm:mt-12 md:mt-16 animate-fadeIn delay-300">
           <div className="flex items-center justify-between mb-6 sm:mb-8">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
               Projets phares
             </h2>
             <Link
               href="/projects"
-              className="text-sm sm:text-base text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium transition-colors inline-flex items-center gap-1"
+              className="text-sm sm:text-base text-emerald-600 hover:text-emerald-700 font-medium transition-colors inline-flex items-center gap-1"
             >
               Voir tous les projets
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,42 +132,56 @@ export default function Home() {
             {projects.map((project) => (
               <div
                 key={project.slug}
-                className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                className="bg-white/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-200/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
               >
-                <div className="relative w-full h-40 sm:h-48 bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                  {project.images.length > 0 ? (
-                    <Image
-                      src={project.images[0]}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                      <span className="text-4xl sm:text-6xl" role="img" aria-label={project.title}>
-                        🎵
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <div className="p-4 sm:p-6">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 sm:mb-4 line-clamp-2">
-                    {project.short}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
-                    {project.tech.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 sm:px-3 py-0.5 sm:py-1 text-xs font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="block"
+                  aria-label={`Voir les détails du projet ${project.title}`}
+                >
+                  <div className="relative w-full h-40 sm:h-48 bg-gray-100 overflow-hidden">
+                    {project.slug === 'provisions' ? (
+                      <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                        <span className="text-4xl sm:text-6xl" role="img" aria-label={project.title}>
+                          🍎
+                        </span>
+                      </div>
+                    ) : project.images.length > 0 ? (
+                      <Image
+                        src={project.images[0]}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                        <span className="text-4xl sm:text-6xl" role="img" aria-label={project.title}>
+                          🎵
+                        </span>
+                      </div>
+                    )}
                   </div>
+                  <div className="p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-2">
+                      {project.short}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+                      {project.tech.slice(0, 3).map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 sm:px-3 py-0.5 sm:py-1 text-xs font-medium bg-emerald-100 text-emerald-800 rounded-full"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+                <div className="px-4 sm:px-6 pb-4 sm:pb-6">
                   <div className="flex flex-wrap gap-2">
                     <Link
                       href={`/projects/${project.slug}`}
@@ -134,7 +194,7 @@ export default function Home() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2 text-sm font-semibold bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white rounded-lg transition-colors inline-flex items-center gap-1.5"
+                        className="px-4 py-2 text-sm font-semibold bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors inline-flex items-center gap-1.5"
                         aria-label={`Voir le code de ${project.title}`}
                       >
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -148,7 +208,7 @@ export default function Home() {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2 text-sm font-semibold bg-emerald-600 dark:bg-emerald-700 hover:bg-emerald-700 dark:hover:bg-emerald-600 text-white rounded-lg transition-colors inline-flex items-center gap-1.5"
+                        className="px-4 py-2 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors inline-flex items-center gap-1.5"
                         aria-label={`Voir le projet ${project.title}`}
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,30 +224,31 @@ export default function Home() {
           </div>
         </section>
         <section className="mt-8 sm:mt-12 md:mt-16 animate-fadeIn delay-400">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 text-center">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
             Compétences
           </h2>
           <div className="space-y-3 sm:space-y-4 max-w-3xl mx-auto">
-            <SkillsDropdown title="Front-End" items={skills.frontEnd} />
-            <SkillsDropdown title="Back-End" items={skills.backEnd} />
-            <SkillsDropdown title="Outils" items={skills.tools} />
+            <SkillsDropdown title="Développement Front‑End" items={skills.frontEnd} />
+            <SkillsDropdown title="Développement Back‑End" items={skills.backEnd} />
+            <SkillsDropdown title="Design & Multimédia" items={skills.design} />
+            <SkillsDropdown title="Outils & environnements" items={skills.tools} />
           </div>
         </section>
         <section className="mt-8 sm:mt-12 md:mt-16 animate-fadeIn delay-500">
-          <div className="bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-emerald-300/30 dark:border-emerald-700/30">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+          <div className="bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-emerald-300/30">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
               CV en bref
             </h2>
             <div className="space-y-3 sm:space-y-4 mb-6">
               <div className="flex items-start gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">Formation:</span>
-                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
+                <span className="text-emerald-600 font-semibold shrink-0">Formation:</span>
+                <p className="text-sm sm:text-base text-gray-700">
                   AEC : Développement de sites web transactionnels — Collège Ahuntsic (Février 2026, fin prévue)
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">Objectif:</span>
-                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
+                <span className="text-emerald-600 font-semibold shrink-0">Objectif:</span>
+                <p className="text-sm sm:text-base text-gray-700">
                   Recherche d'un stage de fin d'études en développement web ou UI/UX, avec possibilité d'embauche par la suite
                 </p>
               </div>

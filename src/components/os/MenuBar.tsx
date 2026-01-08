@@ -37,7 +37,7 @@ export default function MenuBar() {
           <nav className="flex items-center gap-4 sm:gap-6" aria-label="Navigation principale">
             <Link
               href="/"
-              className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white hover:opacity-80 transition-opacity"
+              className="text-xs sm:text-sm font-semibold text-gray-900 hover:opacity-80 transition-opacity"
             >
               <span className="hidden sm:inline">Jeremy Audette</span>
               <span className="sm:hidden">J.A.</span>
@@ -51,8 +51,8 @@ export default function MenuBar() {
                     pathname === item.href || 
                     (item.href === '/projects' && pathname.startsWith('/projects/')) ||
                     (item.href === '/about' && pathname === '/about')
-                      ? 'text-emerald-700 dark:text-emerald-300'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+                      ? 'text-emerald-700'
+                      : 'text-gray-700 hover:text-gray-900'
                   }`}
                 >
                   {item.label}
@@ -62,12 +62,12 @@ export default function MenuBar() {
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-4">
-            <div className="hidden sm:block text-xs font-medium text-gray-700 dark:text-gray-300">
+            <div className="hidden sm:block text-xs font-medium text-gray-700">
               {time}
             </div>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-1.5 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+              className="md:hidden p-1.5 text-gray-700 hover:text-gray-900 transition-colors"
               aria-label="Menu de navigation"
               aria-expanded={mobileMenuOpen}
             >
@@ -86,7 +86,7 @@ export default function MenuBar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden fixed top-8 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 shadow-lg">
+        <div className="md:hidden fixed top-8 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-lg">
           <nav className="px-4 py-3 space-y-1" aria-label="Navigation mobile">
             {NAV_TOP.map((item) => (
               <Link
@@ -97,8 +97,8 @@ export default function MenuBar() {
                   pathname === item.href || 
                   (item.href === '/projects' && pathname.startsWith('/projects/')) ||
                   (item.href === '/about' && pathname === '/about')
-                    ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    ? 'bg-emerald-100 text-emerald-700'
+                    : 'text-gray-700 hover:bg-gray-100'
                 }`}
               >
                 {item.label}

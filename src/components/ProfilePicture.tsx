@@ -7,7 +7,7 @@ export default function ProfilePicture() {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div className="relative w-32 h-32 sm:w-40 sm:h-40 mb-6 rounded-full overflow-hidden border-4 border-emerald-500/30 dark:border-emerald-400/30 shadow-lg bg-gradient-to-br from-emerald-500/20 to-teal-600/20">
+    <div className="relative w-32 h-32 sm:w-40 sm:h-40 mb-6 rounded-full overflow-hidden border-4 border-emerald-500/30 shadow-lg bg-gradient-to-br from-emerald-500/20 to-teal-600/20">
       {!imageError ? (
         <Image
           src="/avatar.webp"

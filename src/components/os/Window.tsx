@@ -63,7 +63,7 @@ export default function Window({ title, subtitle, children }: WindowProps) {
         <div className="text-center flex-1 px-2 sm:px-0">
           <h1 className="os-window-title text-xs sm:text-sm truncate">{title}</h1>
           {subtitle && (
-            <p className="text-xs text-gray-600 dark:text-gray-400 hidden sm:block">{subtitle}</p>
+            <p className="text-xs text-gray-600 hidden sm:block">{subtitle}</p>
           )}
         </div>
       </div>

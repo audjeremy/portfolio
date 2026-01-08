@@ -29,7 +29,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       <div className="p-4 sm:p-6 md:p-8 lg:p-12">
         <Link
           href="/projects"
-          className="inline-flex items-center text-sm sm:text-base text-emerald-700 dark:text-emerald-300 hover:underline mb-4 sm:mb-6"
+          className="inline-flex items-center text-sm sm:text-base text-emerald-700 hover:underline mb-4 sm:mb-6"
         >
           <svg
             className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
@@ -47,10 +47,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           Retour aux projets
         </Link>
         <div className="mb-6 sm:mb-8">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
             {project.title}
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-4 sm:mb-6">
+          <p className="text-lg sm:text-xl text-gray-600 mb-4 sm:mb-6">
             {project.short}
           </p>
           <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6">
@@ -59,7 +59,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gray-900 dark:bg-gray-700 text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors"
+                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gray-900 text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-gray-800 transition-colors"
               >
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                   <path
@@ -76,7 +76,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-emerald-600 dark:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors"
+                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-emerald-600 text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-emerald-700 transition-colors"
               >
                 <svg
                   className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
@@ -99,7 +99,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             {project.tech.map((tech) => (
               <span
                 key={tech}
-                className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 rounded-full"
+                className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium bg-emerald-100 text-emerald-800 rounded-full"
               >
                 {tech}
               </span>
@@ -107,31 +107,31 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
         <section className="mb-6 sm:mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
             Description
           </h2>
-          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
             {project.description}
           </p>
         </section>
         <section className="mb-6 sm:mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
             Points forts
           </h2>
           <ul className="space-y-2 sm:space-y-3">
             {project.highlights.map((highlight, index) => (
               <li
                 key={index}
-                className="flex items-start bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-gray-200/50 dark:border-gray-700/50"
+                className="flex items-start bg-white/50 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-gray-200/50"
               >
                 <span className="w-2 h-2 bg-emerald-600 rounded-full mr-3 mt-2 shrink-0" />
-                <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300 break-words">{highlight}</span>
+                <span className="text-sm sm:text-base text-gray-700 break-words">{highlight}</span>
               </li>
             ))}
           </ul>
         </section>
         <section>
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
             Aperçu
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -139,7 +139,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               project.images.map((imagePath, index) => (
                 <div
                   key={index}
-                  className="relative w-full min-h-[300px] sm:min-h-[400px] bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-md transition-shadow flex items-center justify-center"
+                  className="relative w-full min-h-[300px] sm:min-h-[400px] bg-gray-50 rounded-xl overflow-hidden border border-gray-200/50 shadow-sm hover:shadow-md transition-shadow flex items-center justify-center"
                 >
                   <Image
                     src={imagePath}
@@ -153,9 +153,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               ))
             ) : (
-              <div className="w-full min-h-[300px] sm:min-h-[400px] bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-xl flex flex-col items-center justify-center border border-gray-200/50 dark:border-gray-700/50">
+              <div className="w-full min-h-[300px] sm:min-h-[400px] bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-xl flex flex-col items-center justify-center border border-gray-200/50">
                 <span className="text-4xl sm:text-5xl mb-3" role="img" aria-hidden="true">🖼️</span>
-                <span className="text-sm sm:text-base text-gray-500 dark:text-gray-400 font-medium">Aperçu bientôt</span>
+                <span className="text-sm sm:text-base text-gray-600 font-medium">Aperçu bientôt</span>
               </div>
             )}
           </div>

@@ -10,10 +10,10 @@ export default function NotFound() {
           <div className="text-8xl mb-6">🔍</div>
 
           {/* Error Message */}
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Erreur 404
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
+          <p className="text-xl text-gray-600 mb-8">
             Oups ! La page que vous cherchez n'existe pas.
           </p>
 

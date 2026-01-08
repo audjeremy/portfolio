@@ -21,20 +21,37 @@
   --dock-bg: rgba(255, 255, 255, 0.65);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --glass-bg: rgba(30, 30, 30, 0.75);
-    --glass-border: rgba(255, 255, 255, 0.15);
-    --menubar-bg: rgba(255, 255, 255, 0.15);
-    --menubar-border: rgba(255, 255, 255, 0.2);
-    --dock-bg: rgba(50, 50, 50, 0.7);
-  }
-}
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              fill 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              stroke 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  transition: none;
 }
 
 html {
@@ -67,7 +84,9 @@ body {
 .os-desktop {
   @apply relative min-h-screen overflow-hidden;
   background: linear-gradient(135deg, #064e3b 0%, #0f766e 55%, #052e16 100%);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 /* Wallpaper */
 .os-wallpaper {
@@ -79,8 +98,10 @@ body {
   background-position: center, 0% 50%;
   background-repeat: no-repeat, no-repeat;
   animation: gradient-shift 15s ease infinite;
+  transition: background-image 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   /* If wallpaper.jpg doesn't exist, the gradient will show */
 }
+
 
 .os-wallpaper::after {
   content: '';
@@ -102,6 +123,7 @@ body {
   background: var(--menubar-bg);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-bottom: 1px solid var(--menubar-border);
 }
 
@@ -125,6 +147,7 @@ body {
   background: var(--dock-bg);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   @apply rounded-2xl px-3 py-2;
   border: 1px solid var(--glass-border);
   box-shadow: 
@@ -191,6 +214,7 @@ body {
   @apply relative bg-white rounded-xl overflow-hidden;
   width: min(1100px, 92vw);
   max-height: calc(100vh - 120px);
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: var(--glass-bg);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
@@ -242,6 +266,7 @@ body {
   height: 44px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (max-width: 640px) {
@@ -276,12 +301,7 @@ body {
 
 .os-window-title {
   @apply text-sm font-semibold text-gray-800;
-}
-
-@media (prefers-color-scheme: dark) {
-  .os-window-title {
-    @apply text-gray-100;
-  }
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Window Content */
