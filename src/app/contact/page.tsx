@@ -147,8 +147,8 @@ export default function Contact() {
                 onChange={handleChange}
                 className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/50 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 ${
                   fieldErrors.name
-                    ? 'border-red-300
-                    : 'border-gray-300
+                    ? 'border-red-300'
+                    : 'border-gray-300'
                 }`}
                 placeholder="Votre nom"
               />
@@ -171,8 +171,8 @@ export default function Contact() {
                 onChange={handleChange}
                 className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/50 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 ${
                   fieldErrors.email
-                    ? 'border-red-300
-                    : 'border-gray-300
+                    ? 'border-red-300'
+                    : 'border-gray-300'
                 }`}
                 placeholder="votre@email.com"
               />
@@ -195,8 +195,8 @@ export default function Contact() {
                 rows={6}
                 className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/50 border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none text-gray-900 ${
                   fieldErrors.message
-                    ? 'border-red-300
-                    : 'border-gray-300
+                    ? 'border-red-300'
+                    : 'border-gray-300'
                 }`}
                 placeholder="Votre message..."
               />
