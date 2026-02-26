@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 import MenuBar from '@/components/os/MenuBar';
 import Dock from '@/components/os/Dock';
 import Footer from '@/components/Footer';
@@ -72,6 +73,7 @@ export default function RootLayout({
         
         {/* Dock */}
         <Dock />
+        <Analytics />
       </body>
     </html>
   );
