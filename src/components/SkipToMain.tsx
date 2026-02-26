@@ -1,5 +1,3 @@
-'use client';
-
 export default function SkipToMain() {
   return (
     <a
@@ -10,4 +8,3 @@ export default function SkipToMain() {
     </a>
   );
 }
-

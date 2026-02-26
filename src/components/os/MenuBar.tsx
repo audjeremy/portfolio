@@ -48,9 +48,8 @@ export default function MenuBar() {
                   key={item.href}
                   href={item.href}
                   className={`text-xs font-medium transition-colors ${
-                    pathname === item.href || 
-                    (item.href === '/projects' && pathname.startsWith('/projects/')) ||
-                    (item.href === '/about' && pathname === '/about')
+                    pathname === item.href ||
+                    (item.href === '/projects' && pathname.startsWith('/projects/'))
                       ? 'text-emerald-700'
                       : 'text-gray-700 hover:text-gray-900'
                   }`}
@@ -94,9 +93,8 @@ export default function MenuBar() {
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  pathname === item.href || 
-                  (item.href === '/projects' && pathname.startsWith('/projects/')) ||
-                  (item.href === '/about' && pathname === '/about')
+                  pathname === item.href ||
+                  (item.href === '/projects' && pathname.startsWith('/projects/'))
                     ? 'bg-emerald-100 text-emerald-700'
                     : 'text-gray-700 hover:bg-gray-100'
                 }`}

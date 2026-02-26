@@ -4,13 +4,15 @@ export default function About() {
   const skills = {
     frontEnd: [
       'HTML',
-      'CSS (Flexbox, Grid, SCSS, Tailwind, Bootstrap)',
+      'CSS (SCSS, Tailwind, Bootstrap)',
       'JavaScript',
       'TypeScript',
       'React',
-      'Fetch API / JSON',
+      'Next.js',
+      'Nuxt.js',
+      'Remix',
+      'React Router',
       'Responsive Design',
-      'Figma (UX/UI)',
     ],
     backEnd: [
       'PHP',
@@ -19,26 +21,24 @@ export default function About() {
       'Express.js',
       'REST API',
       'MVC',
-      'Authentification',
       'MySQL',
       'MongoDB',
-      'CRUD',
       'Postman',
     ],
+    ecommerce: ['Shopify (Headless)', 'Hydrogen', 'Intégration Storefront'],
     design: ['Figma', 'Photoshop', 'Illustrator', 'After Effects', 'UI/UX', 'Design responsive'],
-    tools: ['Git', 'GitHub', 'Docker', 'npm', 'VS Code', 'JSON Server', 'Postman', 'Vercel', 'macOS', 'Accessibilité web'],
+    tools: ['Git', 'GitHub', 'Docker', 'npm', 'VS Code', 'Postman', 'Vercel', 'macOS'],
   };
 
   const experiences = [
     {
-      company: 'La Pat Mobile',
-      period: '2019 – Présent',
-      role: 'Food Truck — Caissier / Cuisinier',
+      company: 'Red One Music Canada',
+      period: 'Été 2024',
+      role: 'Stagiaire développeur web',
       bullets: [
-        'Prise de commandes et service client dans un environnement très rapide.',
-        "Contribué à optimiser le système de prise de commandes, résultant en une réduction du temps d'attente client.",
-        'Préparation des plats sous pression.',
-        "Collaboration avec l'équipe pour assurer un service efficace et cohérent.",
+        "Contribution à la création et à l'optimisation du CRM interne pour la gestion des clients et commandes.",
+        "Migration du site existant de Nuxt (Vue) vers Hydrogen/React Router en améliorant la structure et l'expérience utilisateur.",
+        "Collaboration avec l'équipe pour l'intégration des fonctionnalités front-end et la maintenance du site.",
       ],
     },
     {
@@ -52,9 +52,9 @@ export default function About() {
       ],
     },
     {
-      company: 'Valentine (Chambly)',
-      period: '2017 – 2020',
-      role: 'Restaurant — Caissier / Cuisinier',
+      company: 'Valentine + Pat Mobile',
+      period: '2017 – 2025',
+      role: 'Restaurant & Food Truck — Caissier / Cuisinier',
       bullets: [
         'Accueil des clients, prise de commandes et encaissement.',
         "Préparation des plats selon les normes d'hygiène.",
@@ -108,13 +108,13 @@ export default function About() {
           </h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-700 mb-4">
-              Je suis un étudiant en développement web passionné par la création d'expériences utilisateurs
-              réfléchies, alliant design et logique. Mon parcours m'a permis de développer une approche globale
-              du numérique, centrée sur le développement web moderne et sur l'UX/UI.
+              Développeur web spécialisé en front-end, formé full-stack. J'aime allier logique et design
+              afin de concevoir des interfaces modernes, soignées et intuitives, tout en gardant une vision
+              globale de l'application et de l'expérience utilisateur.
             </p>
             <p className="text-gray-700 mb-4">
-              Je recherche un stage de fin d'études en développement web ou UI/UX, avec possibilité d'embauche
-              à la suite du stage.
+              Je suis à la recherche d'un poste à temps plein en développement web où je pourrai mettre à profit
+              mes compétences et contribuer à la création de produits numériques performants et bien pensés.
             </p>
           </div>
 
@@ -205,6 +205,20 @@ export default function About() {
             </div>
 
             <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">E-commerce & Headless</h3>
+              <div className="flex flex-wrap gap-2">
+                {skills.ecommerce.map((item) => (
+                  <span
+                    key={item}
+                    className="px-3 py-1.5 text-xs sm:text-sm font-medium bg-emerald-100 text-emerald-800 rounded-full"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-200/50">
               <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Design & Multimédia</h3>
               <div className="flex flex-wrap gap-2">
                 {skills.design.map((item) => (
@@ -245,7 +259,7 @@ export default function About() {
                 AEC : Développement de sites web transactionnels
               </h4>
               <p className="text-sm sm:text-base text-gray-600 mb-2 sm:mb-3">
-                Collège Ahuntsic • Février 2026 (fin prévue)
+                Collège Ahuntsic • Février 2026
               </p>
               <p className="text-sm sm:text-base text-gray-700">
                 Formation full stack axée sur la conception, le déploiement et la gestion de sites transactionnels.

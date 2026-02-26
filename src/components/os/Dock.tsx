@@ -41,10 +41,9 @@ export default function Dock() {
     <div className="os-dock">
       <div className="flex items-center gap-0.5 sm:gap-1">
         {dockItems.map((item) => {
-          const isActive = pathname === item.href || 
-            (item.href === '/projects' && pathname.startsWith('/projects/')) ||
-            (item.href === '/about' && pathname === '/about') ||
-            (item.href === '/presentation' && pathname === '/presentation');
+          const isActive =
+            pathname === item.href ||
+            (item.href === '/projects' && pathname.startsWith('/projects/'));
           
           const isClicked = clickedItem === item.href;
           

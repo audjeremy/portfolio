@@ -12,13 +12,15 @@ export default function Home() {
   const skills = {
     frontEnd: [
       'HTML',
-      'CSS (Flexbox, Grid, SCSS, Tailwind, Bootstrap)',
+      'CSS (SCSS, Tailwind, Bootstrap)',
       'JavaScript',
       'TypeScript',
       'React',
-      'Fetch API / JSON',
+      'Next.js',
+      'Nuxt.js',
+      'Remix',
+      'React Router',
       'Responsive Design',
-      'Figma (UX/UI)',
     ],
     backEnd: [
       'PHP',
@@ -27,14 +29,13 @@ export default function Home() {
       'Express.js',
       'REST API',
       'MVC',
-      'Authentification',
       'MySQL',
       'MongoDB',
-      'CRUD',
       'Postman',
     ],
+    ecommerce: ['Shopify (Headless)', 'Hydrogen', 'Intégration Storefront'],
     design: ['Figma', 'Photoshop', 'Illustrator', 'After Effects', 'UI/UX', 'Design responsive'],
-    tools: ['Git', 'GitHub', 'Docker', 'npm', 'VS Code', 'JSON Server', 'Postman', 'Vercel', 'macOS', 'Accessibilité web'],
+    tools: ['Git', 'GitHub', 'Docker', 'npm', 'VS Code', 'Postman', 'Vercel', 'macOS'],
   };
 
   return (
@@ -53,9 +54,9 @@ export default function Home() {
               Développeur web
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
-              Étudiant en développement web passionné par la création d'expériences utilisateurs réfléchies,
-              alliant design et logique. Je recherche un stage de fin d'études en développement web ou UI/UX,
-              avec possibilité d'embauche par la suite.
+              Développeur web spécialisé en front-end, formé full-stack. J'aime allier logique et design
+              afin de concevoir des interfaces modernes, soignées et intuitives, tout en gardant une vision
+              globale de l'application et de l'expérience utilisateur.
             </p>
             <div className="flex items-center justify-center gap-4 mb-6 sm:mb-8">
               <a
@@ -230,6 +231,7 @@ export default function Home() {
           <div className="space-y-3 sm:space-y-4 max-w-3xl mx-auto">
             <SkillsDropdown title="Développement Front‑End" items={skills.frontEnd} />
             <SkillsDropdown title="Développement Back‑End" items={skills.backEnd} />
+            <SkillsDropdown title="E-commerce & Headless" items={skills.ecommerce} />
             <SkillsDropdown title="Design & Multimédia" items={skills.design} />
             <SkillsDropdown title="Outils & environnements" items={skills.tools} />
           </div>
@@ -243,13 +245,13 @@ export default function Home() {
               <div className="flex items-start gap-3">
                 <span className="text-emerald-600 font-semibold shrink-0">Formation:</span>
                 <p className="text-sm sm:text-base text-gray-700">
-                  AEC : Développement de sites web transactionnels — Collège Ahuntsic (Février 2026, fin prévue)
+                  AEC : Développement de sites web transactionnels — Collège Ahuntsic (Février 2026)
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-emerald-600 font-semibold shrink-0">Objectif:</span>
                 <p className="text-sm sm:text-base text-gray-700">
-                  Recherche d'un stage de fin d'études en développement web ou UI/UX, avec possibilité d'embauche par la suite
+                  Recherche d'un poste à temps plein en développement web front-end
                 </p>
               </div>
             </div>

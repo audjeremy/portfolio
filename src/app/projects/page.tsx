@@ -24,7 +24,7 @@ export default function Projects() {
             <Link
               key={project.slug}
               href={`/projects/${project.slug}`}
-              className="group block bg-white/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-200/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover-lift animate-fadeIn"
+              className="group block bg-white/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-200/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] animate-fadeIn"
               style={{ animationDelay: `${projects.indexOf(project) * 0.1}s` }}
             >
               <div className="relative w-full h-40 sm:h-48 bg-gray-100 overflow-hidden">
