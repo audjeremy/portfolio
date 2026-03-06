@@ -102,7 +102,6 @@ export const projects: Project[] = [
     short: 'Portfolio interactif avec interface inspirée de macOS',
     description: 'Portfolio interactif conçu pour présenter mes projets et mon profil de développeur web. L\'interface privilégie une navigation fluide, une hiérarchie claire de l\'information et une mise en page responsive, afin d\'offrir une expérience simple et efficace.',
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'CSS Animations'],
-    github: 'https://github.com/audjeremy/portfolio',
     demo: '',
     images: ['/projects/portfolio-1.png'],
     highlights: [
