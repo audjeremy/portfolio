@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { HiOutlineArrowRight, HiOutlineArrowDownTray, HiOutlineEnvelope, HiOutlineMusicalNote, HiOutlineRectangleGroup } from 'react-icons/hi2';
 import Window from '@/components/os/Window';
 import ProfilePicture from '@/components/ProfilePicture';
 import SkillsDropdown from '@/components/SkillsDropdown';
@@ -44,16 +45,16 @@ export default function Home() {
         <section className="text-center mb-8 sm:mb-12 animate-fadeIn">
           <div className="flex flex-col items-center mb-6 sm:mb-8">
             <ProfilePicture />
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 sm:mb-3 px-2">
               Bonjour, je suis{' '}
               <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">
                 Jeremy Audette
               </span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-6 sm:mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-800 mb-3 sm:mb-4">
               Développeur web
             </p>
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
               Développeur web spécialisé en front-end, formé full-stack. J'aime allier logique et design
               afin de concevoir des interfaces modernes, soignées et intuitives, tout en gardant une vision
               globale de l'application et de l'expérience utilisateur.
@@ -90,9 +91,7 @@ export default function Home() {
             >
               <span className="inline-flex items-center gap-2 justify-center">
                 Voir mes projets
-                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
+                <HiOutlineArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </span>
             </Link>
             <a
@@ -101,22 +100,21 @@ export default function Home() {
               rel="noopener noreferrer"
               className="group px-6 sm:px-8 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-gray-900 text-sm sm:text-base font-semibold rounded-lg transition-all border border-gray-200 shadow-md hover:shadow-lg hover:scale-105 inline-flex items-center justify-center gap-2"
             >
-              <svg className="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
+              <HiOutlineArrowDownTray className="w-4 h-4 transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
               Télécharger mon CV
             </a>
             <Link
               href="/contact"
-              className="px-6 sm:px-8 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-gray-900 text-sm sm:text-base font-semibold rounded-lg transition-all border border-gray-200 shadow-md hover:shadow-lg hover:scale-105"
+              className="group px-6 sm:px-8 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-gray-900 text-sm sm:text-base font-semibold rounded-lg transition-all border border-gray-200 shadow-md hover:shadow-lg hover:scale-105 inline-flex items-center justify-center gap-2"
             >
+              <HiOutlineEnvelope className="w-4 h-4" aria-hidden="true" />
               Me contacter
             </Link>
           </div>
         </section>
         <section className="mt-8 sm:mt-12 md:mt-16 animate-fadeIn delay-300">
           <div className="flex items-center justify-between mb-6 sm:mb-8">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
               Projets phares
             </h2>
             <Link
@@ -124,9 +122,7 @@ export default function Home() {
               className="text-sm sm:text-base text-emerald-600 hover:text-emerald-700 font-medium transition-colors inline-flex items-center gap-1"
             >
               Voir tous les projets
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              <HiOutlineArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -143,9 +139,7 @@ export default function Home() {
                   <div className="relative w-full h-40 sm:h-48 bg-gray-100 overflow-hidden">
                     {project.slug === 'provisions' ? (
                       <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                        <span className="text-4xl sm:text-6xl" role="img" aria-label={project.title}>
-                          🍎
-                        </span>
+                        <HiOutlineRectangleGroup className="w-12 h-12 sm:w-16 sm:h-16 text-white" aria-hidden="true" />
                       </div>
                     ) : project.images.length > 0 ? (
                       <Image
@@ -157,9 +151,7 @@ export default function Home() {
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                        <span className="text-4xl sm:text-6xl" role="img" aria-label={project.title}>
-                          🎵
-                        </span>
+                        <HiOutlineMusicalNote className="w-12 h-12 sm:w-16 sm:h-16 text-white" aria-hidden="true" />
                       </div>
                     )}
                   </div>
@@ -225,7 +217,7 @@ export default function Home() {
           </div>
         </section>
         <section className="mt-8 sm:mt-12 md:mt-16 animate-fadeIn delay-400">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
             Compétences
           </h2>
           <div className="space-y-3 sm:space-y-4 max-w-3xl mx-auto">
@@ -238,7 +230,7 @@ export default function Home() {
         </section>
         <section className="mt-8 sm:mt-12 md:mt-16 animate-fadeIn delay-500">
           <div className="bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-emerald-300/30">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
               CV en bref
             </h2>
             <div className="space-y-3 sm:space-y-4 mb-6">
@@ -257,12 +249,10 @@ export default function Home() {
             </div>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105"
+              className="group inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-base font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105"
             >
               Voir mon CV complet
-              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+              <HiOutlineArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </Link>
           </div>
         </section>

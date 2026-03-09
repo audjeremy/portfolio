@@ -33,7 +33,7 @@ export default function About() {
   const experiences = [
     {
       company: 'Red One Music Canada',
-      period: 'Été 2024',
+      period: 'Janvier 2026 – Mars 2026',
       role: 'Stagiaire développeur web',
       bullets: [
         "Contribution à la création et à l'optimisation du CRM interne pour la gestion des clients et commandes.",
@@ -73,7 +73,7 @@ export default function About() {
       <div className="p-4 sm:p-6 md:p-8 lg:p-12">
         {/* Header */}
         <section className="mb-8 sm:mb-12">
-          <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">
+          <p className="text-xs sm:text-sm font-semibold tracking-wide text-gray-500 uppercase mb-4 sm:mb-6">
             Développeur web – Montréal
           </p>
           
@@ -103,7 +103,7 @@ export default function About() {
           </div>
           
           {/* Résumé */}
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
             Résumé
           </h2>
           <div className="prose prose-lg max-w-none">
@@ -172,7 +172,7 @@ export default function About() {
 
         {/* Compétences techniques - Chips */}
         <section className="mb-8 sm:mb-12">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
             Compétences techniques
           </h2>
           <div className="space-y-4 sm:space-y-6">
@@ -250,7 +250,7 @@ export default function About() {
 
         {/* Formation */}
         <section className="mb-8 sm:mb-12">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
             Formation
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -283,7 +283,7 @@ export default function About() {
 
         {/* Expérience */}
         <section className="mb-8 sm:mb-12">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
             Expérience
           </h2>
           <div className="space-y-4 sm:space-y-6">
@@ -316,7 +316,7 @@ export default function About() {
 
         {/* Langues & intérêts */}
         <section className="mb-8 sm:mb-12">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
             Langues & intérêts
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">

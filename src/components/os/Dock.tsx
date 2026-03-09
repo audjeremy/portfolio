@@ -3,26 +3,27 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { HiOutlineHome, HiOutlineBriefcase, HiOutlineDocumentText, HiOutlineStar, HiOutlineEnvelope } from 'react-icons/hi2';
 import { NAV_MOBILE } from '@/config/nav';
 
 interface DockItem {
   href: string;
   label: string;
-  icon: string;
+  icon: JSX.Element;
 }
 
-const dockIcons: Record<string, string> = {
-  '/': '🏠',
-  '/projects': '💼',
-  '/about': '📄',
-  '/presentation': '⭐',
-  '/contact': '✉️',
+const dockIcons: Record<string, JSX.Element> = {
+  '/': <HiOutlineHome className="w-6 h-6" aria-hidden="true" />,
+  '/projects': <HiOutlineBriefcase className="w-6 h-6" aria-hidden="true" />,
+  '/about': <HiOutlineDocumentText className="w-6 h-6" aria-hidden="true" />,
+  '/presentation': <HiOutlineStar className="w-6 h-6" aria-hidden="true" />,
+  '/contact': <HiOutlineEnvelope className="w-6 h-6" aria-hidden="true" />,
 };
 
 const dockItems: DockItem[] = NAV_MOBILE.map((item) => ({
   href: item.href,
   label: item.label,
-  icon: dockIcons[item.href] || '📄',
+  icon: dockIcons[item.href] || <HiOutlineDocumentText className="w-6 h-6" aria-hidden="true" />,
 }));
 
 export default function Dock() {
@@ -56,9 +57,7 @@ export default function Dock() {
               onClick={() => handleItemClick(item.href)}
             >
               <div className={`os-dock-icon ${isActive ? 'ring-2 ring-emerald-400' : ''} ${isClicked ? 'os-dock-item-clicked' : ''}`}>
-                <span role="img" aria-hidden="true">
-                  {item.icon}
-                </span>
+                {item.icon}
               </div>
               <div className="os-dock-tooltip">
                 {item.label}

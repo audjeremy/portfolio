@@ -44,7 +44,7 @@ export default function SkillsDropdown({ title, items, defaultOpen = false }: Sk
           isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+        <div className="px-4 sm:px-6 pt-4 sm:pt-6 pb-6 sm:pb-8">
           <div className="flex flex-wrap gap-2">
             {items.map((item) => (
               <span
